@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <div class="nav_header">
+        <div class="nav__header">
             <div class="logo nav__logo">
                 <a href="#">Food <span>man</span></a>
             </div>
@@ -41,6 +41,13 @@
             </div>
         </div>
     </section>
-    </header>    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navLink = document.getElementById('nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            navLink.classList.toggle('open');
+        });    
+    </script>   
 </body>
 </html>
