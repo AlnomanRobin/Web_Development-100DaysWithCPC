@@ -2,11 +2,11 @@
 
 :root {
     --primary-color: #fc7f09;
-    --secondary-color: #fffcfa;
-    --background-color: #db6e09;
+    --primary-color-light: #d71212;
+    --primary-color-dark: #db6e09;
     --text-dark: #18181b;
     --text-light: #6b7280;
-    --white: #ffffff;
+    --white: #319331;
     max-width: 1200px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: poppins, sans-serif;
+    font-family: 'poppins', sans-serif;
 }
 
 .logo a {
@@ -44,7 +44,7 @@ ul {
     list-style: none;
 }
 
-/*Navigation Bar*/
+/*Navigation */
 nav {
     position: fixed;
     isolation: isolate;
@@ -71,7 +71,7 @@ nav {
     cursor: pointer;
 }
 
-.nav--links {
+.nav__links {
     position: absolute;
     top: 68px;
     left: 0;
@@ -86,7 +86,7 @@ nav {
     background-color: var(--primary-color-light);
     transition: 0.5s;
     z-index: -1;
-    transform: translateY(-100px);
+    transform: translateY(-100%);
 }
 
 .nav__links.open {
