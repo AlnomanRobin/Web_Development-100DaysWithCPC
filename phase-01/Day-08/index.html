@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-07   Advanced from</title>
+</head>
+<body>
+    <h2>Registration From</h2>
+    <Form>
+        <label>Email:</label>
+        <input type="email" name="email" required> <!--required -> Cannot be left empty-->
+        <br><br>
+        <label>Website:</label>
+        <input type="url" name="website" placeholder="https://Facebook.com">
+        <!--Placeholder => Used to show a hint or guide text inside an input field when it’s empty.-->
+        <br><br>
+        <label>Age:</label>
+        <input type="number" name="age" min="18" max="65" step="1">
+        <br><br>
+        <label>Experience (1-10 years):</label>
+        <input type="range" name="experience" min="1" max="10" step="1">
+        <br><br>
+        <label>color:</label>
+        <input type="color" name="favColor">
+        <br><br>
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" min="1990-01-01" max="2024-12-31">
+        <br><br>
+        <label>Appointment Time:</label>
+        <input type="time" name="appointment" min="09:00" max="18:00">
+        <br><br>
+        <!--File Upload-->
+        <label>Upload Resume:</label>
+        <input type="file" name="resume" accept=".pdf, .doc, .docx, .txt, .jpg, .png" multiple>
+        <br><br>
+        <label>Password:</label>
+        <input type="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+        <br><br>
+
+        <input type="button" value="Click Me" onclick="alert('Button Clicked!')">
+        <br><br>
+        <input type="hidden" name="userId" value="12345">
+        <br><br>
+        <input type="search" name="search" placeholder="Search...">
+        <br><br>
+        <input type="tel" name="phone" placeholder="+1234567890" pattern="[+]{1}[0-9]{10,15}">
+        <br><br>        
+
+    </Form>
+
+    <footer>
+      <p>© 2025 MyWebsite. All rights reserved.</p>
+      <p>
+        <a href="https://www.facebook.com/AlnomanRobin2.0">About</a> | 
+        <a href="/contact">Contact</a> | 
+        <a href="/privacy">Privacy Policy</a>
+     </p>
+    </footer>
+
+  </body>
+</html>
