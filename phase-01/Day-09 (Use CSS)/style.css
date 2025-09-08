@@ -1,0 +1,22 @@
+/* Style for body */
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Style for heading */
+h1 {
+  color: darkblue;
+  text-align: center;
+  font-size: 36px;
+}
+
+/* Style for paragraph */
+p {
+  color: #333;
+  font-size: 18px;
+  background-color: lightyellow;
+  padding: 10px;
+  border-radius: 5px;
+}
