@@ -1,0 +1,32 @@
+/* Universal */
+* {
+  font-family: Arial, sans-serif;
+}
+
+/* Element */
+h1 {
+  color: darkblue;
+}
+
+/* Class */
+.highlight {
+  color: white;
+  background-color: blue;
+  padding: 5px;
+}
+
+/* ID */
+#special {
+  color: red;
+  font-weight: bold;
+}
+
+/* Grouping */
+h1, h2 {
+  text-align: center;
+}
+
+/* Nested */
+div p {
+  color: green;
+}
