@@ -10,13 +10,17 @@ h1 {
   color: darkblue;
   text-align: center;
   font-size: 36px;
+  background-color: lightpink;
+  padding: 15px;
+  border-radius: 10px;
+  border: 5px solid dodgerblue;
 }
 
 /* Style for paragraph */
 p {
-  color: #333;
+  color: #1e1e1e;
   font-size: 18px;
-  background-color: lightyellow;
+  background-color: rgb(225, 225, 174);
   padding: 10px;
   border-radius: 5px;
 }
