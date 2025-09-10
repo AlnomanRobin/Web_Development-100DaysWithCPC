@@ -1,5 +1,5 @@
 body {
-  background-color: #f4f4f4;
+  background-color: #ac9685;
   font-family: Verdana, sans-serif;
 }
 
@@ -16,7 +16,7 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   line-height: 1.6;
-  background-color: lightyellow;
+  background-color: rgb(227, 227, 219);
   padding: 10px;
   border-radius: 5px;
 }
