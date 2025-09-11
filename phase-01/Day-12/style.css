@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* Box 1 */
+.box1 {
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 10px solid blue;
+  margin: 30px auto;
+  background-color: rgb(224, 224, 161);
+  box-shadow: 5px 5px 10px rgb(243, 9, 9);
+}
+
+/* Box 2 */
+.box2 {
+  width: 150px;
+  height: 80px;
+  padding: 15px;
+  border: 3px dotted red;
+  margin: 40px auto;
+  background-color: lightgreen;
+  outline: 2px solid black;
+
+  position: absolute;
+  top: 100px;   /* উপরের দিক থেকে দূরত্ব */
+  left: 200px;  /* বাম দিক থেকে দূরত্ব */
+}
+
+
+.box3 {
+  width: 180px;
+  height: 90px;
+  padding: 15px;
+  border: 7px dotted purple;
+  margin: 20px auto;
+  background-color: lightcoral;
+  box-shadow: 3px 3px 6px rgb(13, 201, 29);
+  text-align: left;
+}
+
+.box4 {
+  width: 220px;
+  height: 110px;
+  padding: 25px;
+  border: 5px dashed orange;
+  margin: 50px auto;
+  background-color: lightblue;
+  outline: 3px solid green;
+  
+}
