@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;          /* try: column, row-reverse */
+  justify-content: space-around;/* try: center, space-between */
+  align-items: center;          /* try: flex-start, flex-end */
+  flex-wrap: wrap;              /* allows items to move down */
+  height: 300px;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.box {
+  background: lightblue;
+  border: 2px solid blue;
+  padding: 20px;
+  margin: 5px;
+  flex-grow: 1; /* makes all boxes stretch equally */
+}
