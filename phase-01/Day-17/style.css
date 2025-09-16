@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin: 20px 0;
+}
+
+.static-box, .relative-box, .absolute-box, .fixed-box, .sticky-box {
+  width: 150px;
+  height: 100px;
+  line-height: 100px;
+  margin: 10px auto;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.static-box { background-color: lightblue; position: static; }
+.relative-box { background-color: lightgreen; position: relative; top: 20px; left: 20px; }
+.parent { position: relative; width: 300px; height: 200px; background-color: lightgray; margin: 20px auto; }
+.absolute-box { position: absolute; top: 10px; right: 10px; background-color: orange; }
+.fixed-box { position: fixed; bottom: 10px; right: 10px; background-color: pink; }
+.sticky-box { position: sticky; top: 0; background-color: gold; padding: 10px; }
