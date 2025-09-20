@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin: 20px 0;
+}
+
+/* ===========================
+   1. GRID TEMPLATE AREAS
+   =========================== */
+.grid-areas {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: 80px 1fr 60px;
+  gap: 10px;
+  margin: 20px auto;
+  width: 90%;
+  height: 400px;
+}
+
+.grid-areas > * {
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+header   { grid-area: header; background: teal; }
+nav      { grid-area: nav; background: darkorange; }
+main     { grid-area: main; background: steelblue; }
+aside    { grid-area: aside; background: green; }
+footer   { grid-area: footer; background: purple; }
+
+/* ===========================
+   2. NESTED GRID
+   =========================== */
+.outer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.box {
+  background: teal;
+  color: white;
+  font-weight: bold;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.nested {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: darkorange;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.nested div {
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* ===========================
+   3. RESPONSIVE GRID
+   =========================== */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.responsive-grid div {
+  background: steelblue;
+  color: white;
+  font-weight: bold;
+  padding: 25px;
+  border-radius: 6px;
+}
