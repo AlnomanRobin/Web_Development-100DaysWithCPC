@@ -1,0 +1,106 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header with Flexbox */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: teal;
+  color: white;
+  padding: 15px 30px;
+}
+
+.header .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.header .nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header .nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section with Grid */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 50px;
+  background: white;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: teal;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-text button {
+  padding: 12px 20px;
+  background: teal;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background: darkcyan;
+}
+
+.hero-img img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Features Section with Responsive Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  background: #eee;
+}
+
+.feature {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Footer with Grid */
+.footer {
+  display: grid;
+  place-items: center;
+  background: teal;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
