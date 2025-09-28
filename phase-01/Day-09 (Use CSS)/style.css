@@ -7,7 +7,7 @@ body {
 
 /* Style for heading */
 h1 {
-  color: darkblue;
+  color: rgb(0, 139, 0);
   text-align: center;
   font-size: 36px;
   background-color: lightpink;
@@ -21,6 +21,7 @@ p {
   color: #1e1e1e;
   font-size: 18px;
   background-color: rgb(225, 225, 174);
-  padding: 10px;
-  border-radius: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 5px solid #7b0606;
 }

@@ -1,0 +1,87 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f3f3f3;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* 1. Bouncing Ball */
+.ball {
+  width: 60px;
+  height: 60px;
+  background: crimson;
+  border-radius: 50%;
+  margin: 0 auto 60px;
+  animation: bounce 1s infinite alternate;
+  position: relative;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(200px); }
+}
+
+/* 2. Rotating Card */
+.card {
+  width: 200px;
+  height: 120px;
+  margin: 40px auto;
+  perspective: 1000px; /* 3D effect */
+  position: relative;
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  line-height: 120px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 1s;
+}
+
+.front {
+  background: dodgerblue;
+  color: white;
+}
+
+.back {
+  background: orange;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: rotateY(360deg);
+}
+
+/* 3. Loading Spinner */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid teal;
+  border-radius: 50%;
+  margin: 60px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
