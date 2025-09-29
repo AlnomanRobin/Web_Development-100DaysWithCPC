@@ -58,8 +58,9 @@ h1 {
 .container {
   margin-top: 100px;
   padding: 20px;
-  height: 800px; /* enough height to test sticky */
-  background: #f4f4f4;
+  height: 700px; /* enough height to test sticky */
+  width: 800px;
+  background: #b0dae2;
 }
 
 .sticky {
