@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth; /* Smooth scroll */
+  background-color: rgb(125, 135, 132);
 }
 
 /* Body */
@@ -92,7 +93,7 @@ section h2 {
 
 /* Projects */
 .project {
-  background: #fff;
+  background: #a3ae84;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 10px;
