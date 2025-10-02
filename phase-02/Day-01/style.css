@@ -11,10 +11,10 @@ body{
     height: 100vh;
 }
 .card{
+    background: linear-gradient(45deg, #a5fecb, #20bdff);
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #a5fecb, #20bdff);
     transform-style: preserve-3d;
     transition: all 1s ease-in-out;
 }
@@ -23,6 +23,7 @@ body{
     background: linear-gradient(#ffffff27, #ffffff28);
     border-radius: inherit;
     position: absolute;
+    box-shadow: -5px 5px 10px #64646f33;
     transition: all 1s ease-in-out;
 
 }
