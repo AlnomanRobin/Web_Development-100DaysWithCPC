@@ -1,5 +1,3 @@
-// Day 1 - First JavaScript
-
 // select elements
 let text = document.getElementById("text");
 let btn = document.getElementById("btn");
