@@ -1,6 +1,6 @@
 // Day 2 - Variables & Data Types
 
-let name = "Shawon";
+let name = "robin";
 let age = 21;
 let isStudent = true;
 
