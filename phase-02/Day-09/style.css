@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+  background: #f8f9fa;
+}
+
+h1 {
+  color: #00695c;
+}
+
+.input-area, .filter-area {
+  margin: 20px 0;
+}
+
+input {
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  background: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkcyan;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  margin: 8px auto;
+  padding: 10px;
+  width: 280px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+#totalMovies {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
