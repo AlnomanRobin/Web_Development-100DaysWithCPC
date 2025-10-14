@@ -1,29 +1,29 @@
-function startProcess() {
-  document.getElementById("output").innerText = "Downloading...";
+let fruits = ["Apple", "Banana", "Mango"];
 
-  setTimeout(function() {
-    document.getElementById("output").innerText = "Download Complete ✅";
-  }, 2000);
+function addFruit() {
+  let fruit = document.getElementById("fruitInput").value;
+  if (fruit) {
+    fruits.push(fruit);
+    document.getElementById("output").innerText = fruit + " added!";
+    document.getElementById("fruitInput").value = "";
+  } else {
+    document.getElementById("output").innerText = "Please enter a fruit name!";
+  }
 }
 
-function nestedExample() {
-  function outer() {
-    let user = "AR";
-    function inner() {
-      return `Welcome back, ${user}!`;
-    }
-    return inner();
+function removeFruit() {
+  if (fruits.length > 0) {
+    let removed = fruits.pop();
+    document.getElementById("output").innerText = removed + " removed!";
+  } else {
+    document.getElementById("output").innerText = "No fruits to remove!";
   }
-  document.getElementById("output").innerText = outer();
 }
 
-function returnFunction() {
-  function makeAdder(x) {
-    return function(y) {
-      return x + y;
-    };
+function showFruits() {
+  if (fruits.length > 0) {
+    document.getElementById("output").innerText = "Fruits: " + fruits.join(", ");
+  } else {
+    document.getElementById("output").innerText = "List is empty!";
   }
-
-  const add5 = makeAdder(5);
-  document.getElementById("output").innerText = "5 + 10 = " + add5(10);
 }
