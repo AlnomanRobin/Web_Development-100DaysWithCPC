@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Day 16 - JavaScript Arrays</title>
+  <title>Day 18 - User Profile Card</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>🍎 Favorite Fruits List</h1>
-    <input type="text" id="fruitInput" placeholder="Enter fruit name">
-    <button onclick="addFruit()">Add Fruit</button>
-    <button onclick="removeFruit()">Remove Last</button>
-    <button onclick="showFruits()">Show List</button>
-    <p id="output"></p>
+    <h1>👤 User Profile Card Generator</h1>
+    <div class="card" id="profileCard">
+      <img id="userImg" src="" alt="User Image">
+      <h2 id="userName"></h2>
+      <p id="userInfo"></p>
+      <p id="userSkills"></p>
+    </div>
+    <button onclick="generateProfile()">Generate Profile</button>
   </div>
 
   <script src="script.js"></script>
