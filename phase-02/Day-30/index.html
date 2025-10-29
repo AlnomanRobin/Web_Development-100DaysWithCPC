@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Card Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🧠 Memory Match</h1>
+      <div class="stats">
+        <p>⏱ Time: <span id="timer">0</span>s</p>
+        <p>🎯 Moves: <span id="moves">0</span></p>
+      </div>
+    </header>
+
+    <main>
+      <div class="game-board"></div>
+    </main>
+
+    <div class="controls">
+      <button id="restart">🔄 Restart Game</button>
+    </div>
+
+    <footer>
+      <p>Created by <b>AR</b> | Memory Game 🎮</p>
+    </footer>
+  </div>
+
+  <!-- Sound effects -->
+  <audio id="flipSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_0a3a2b1d92.mp3?filename=click-124467.mp3"></audio>
+  <audio id="matchSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b9110f5c82.mp3?filename=correct-2-46134.mp3"></audio>
+  <audio id="winSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7a49b98f8b.mp3?filename=success-1-6297.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
