@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    README / Customization Guide
+    --------------------------------
+    Files:
+      - index.html (this file)
+      - styles.css
+      - scripts.js
+      - assets/
+        - images/
+          - hero.jpg
+          - project1.jpg
+          - project2.jpg
+          - project3.jpg
+        - resume.pdf (your resume)
+    Customize:
+      - Colors & fonts: edit CSS variables in :root in styles.css
+      - Profile info: update text in Hero/About sections
+      - Skills: modify list items in Skills section
+      - Projects: edit cards data in the HTML (IDs, titles, images, tech, links) or populate via JS if preferred
+      - Timeline: update Experience/Education items
+      - Testimonials: replace quotes, names, roles, avatars
+      - Contact: form is client-side validated. With no backend, it uses mailto: fallback.
+    Notes:
+      - BEM-style class names used for clarity and maintainability
+      - Accessibility: semantic HTML, ARIA attributes, keyboard-accessible modal & carousel
+      - Performance: mobile-first, lazy-loaded images, minimal JS, CSS Grid & Flexbox, smooth scrolling
+      - Dark mode: toggle saves preference in localStorage
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Al — Portfolio</title>
+  <meta name="description" content="Professional portfolio of Al — projects, skills, experience, and contact information.">
+  <link rel="preconnect" href="">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="assets/images/favicon.png">
+</head>
+<body class="theme theme--light">
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Home">
+        <span class="logo__mark">A</span><span class="logo__text">Al</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav__toggle-line" aria-hidden="true"></span>
+          <span class="nav__toggle-line" aria-hidden="true"></span>
+          <span class="nav__toggle-line" aria-hidden="true"></span>
+          <span class="nav__toggle-label">Menu</span>
+        </button>
+        <ul id="nav-menu" class="nav__list">
+          <li><a href="#hero" class="nav__link">Home</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#skills" class="nav__link">Skills</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#timeline" class="nav__link">Experience</a></li>
+          <li><a href="#testimonials" class="nav__link">Testimonials</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme"></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="hero" class="hero" aria-label="Intro">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__title-line">Hi, I'm</span>
+            <span class="hero__title-accent" id="typed-name" aria-label="Name">Al</span>
+          </h1>
+          <p class="hero__subtitle">I build clean, performant experiences with data-driven thinking.</p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View projects</a>
+            <a href="assets/resume.pdf" class="btn btn--ghost" download>Download resume</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="assets/images/hero.jpg" alt="Minimal portrait or abstract cover representing Al" loading="lazy" class="hero__img">
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about" aria-label="About me">
+      <div class="container">
+        <h2 class="section__title">About</h2>
+        <div class="about__grid">
+          <p class="about__text">
+            I'm a practical, goal-oriented builder who values clarity and precision. I design and develop modern, accessible interfaces and craft publication-ready visuals. I care deeply about quality and clean presentation.
+          </p>
+          <ul class="about__facts">
+            <li><strong>Location:</strong> Dhaka, Bangladesh</li>
+            <li><strong>Focus:</strong> Data visualization, academic tooling, web UX</li>
+            <li><strong>Values:</strong> Minimal design, accessibility, performance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section skills" aria-label="Skills">
+      <div class="container">
+        <h2 class="section__title">Skills</h2>
+        <div class="skills__content">
+          <ul class="skills__list">
+            <li class="skills__item">HTML5</li>
+            <li class="skills__item">CSS3 / Grid / Flexbox</li>
+            <li class="skills__item">Vanilla JavaScript (ES6+)</li>
+            <li class="skills__item">Accessibility (ARIA, keyboard UX)</li>
+            <li class="skills__item">Performance & SEO fundamentals</li>
+            <li class="skills__item">Data visualization & presentation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section projects" aria-label="Projects">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+        <div class="projects__grid">
+          <!-- Project Card 1 -->
+          <article class="project-card" tabindex="0" aria-haspopup="dialog" aria-controls="project-modal" data-project-id="project-1">
+            <img src="assets/images/project1.jpg" alt="Screenshot of Project One" class="project-card__img" loading="lazy">
+            <div class="project-card__body">
+              <h3 class="project-card__title">Project One</h3>
+              <p class="project-card__desc">Minimal portfolio site with dark mode and smooth UX.</p>
+              <ul class="project-card__tech">
+                <li>HTML</li><li>CSS</li><li>JS</li>
+              </ul>
+            </div>
+          </article>
+          <!-- Project Card 2 -->
+          <article class="project-card" tabindex="0" aria-haspopup="dialog" aria-controls="project-modal" data-project-id="project-2">
+            <img src="assets/images/project2.jpg" alt="Dashboard visualization preview" class="project-card__img" loading="lazy">
+            <div class="project-card__body">
+              <h3 class="project-card__title">Data Dashboard</h3>
+              <p class="project-card__desc">Responsive metrics board with accessible charts.</p>
+              <ul class="project-card__tech">
+                <li>HTML</li><li>CSS</li><li>JS</li>
+              </ul>
+            </div>
+          </article>
+          <!-- Project Card 3 -->
+          <article class="project-card" tabindex="0" aria-haspopup="dialog" aria-controls="project-modal" data-project-id="project-3">
+            <img src="/assets/images/project3.png" alt="Landing page layout preview" class="project-card__img" loading="lazy">
+            <div class="project-card__body">
+              <h3 class="project-card__title">Landing Page</h3>
+              <p class="project-card__desc">Clean, high-performing product landing page.</p>
+              <ul class="project-card__tech">
+                <li>HTML</li><li>CSS</li><li>JS</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessible Project Modal -->
+    <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
+      <div class="modal__backdrop" data-close="modal"></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" aria-label="Close modal" data-close="modal">&times;</button>
+        <div class="modal__content">
+          <h3 id="modal-title" class="modal__title">Project Title</h3>
+          <p id="modal-desc" class="modal__subtitle">Brief project overview and value.</p>
+          <div class="modal__body">
+            <img src="" alt="" class="modal__img" id="modal-img" loading="lazy">
+            <div class="modal__details">
+              <h4 class="modal__section-title">Tech stack</h4>
+              <ul class="modal__tech-list" id="modal-tech"></ul>
+              <h4 class="modal__section-title">Links</h4>
+              <div class="modal__links">
+                <a href="#" class="btn btn--primary" target="_blank" rel="noopener" id="modal-live">Live demo</a>
+                <a href="#" class="btn btn--ghost" target="_blank" rel="noopener" id="modal-github">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience/Education Timeline -->
+    <section id="timeline" class="section timeline" aria-label="Experience and education">
+      <div class="container">
+        <h2 class="section__title">Experience & Education</h2>
+        <ol class="timeline__list">
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Frontend Developer — Freelance</h3>
+              <p class="timeline__meta">2023–Present • Remote</p>
+              <p class="timeline__desc">Built accessible, responsive sites and dashboards. Emphasized performance and clean UX.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Research Assistant — Visualization</h3>
+              <p class="timeline__meta">2022–2023 • Dhaka</p>
+              <p class="timeline__desc">Produced publication-ready figures and integrated visualizations into academic workflows.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">B.Sc. — Computer Science</h3>
+              <p class="timeline__meta">University of Example • 2018–2022</p>
+              <p class="timeline__desc">Focused on web technologies, data analysis, and usability.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="section testimonials" aria-label="Testimonials">
+      <div class="container">
+        <h2 class="section__title">Testimonials</h2>
+        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Client testimonials">
+          <div class="carousel__viewport" id="carousel-viewport" tabindex="0">
+            <article class="testimonial" aria-label="Testimonial 1">
+              <img src="assets/images/avatar1.jpg" alt="Avatar of Client 1" class="testimonial__avatar" loading="lazy">
+              <blockquote class="testimonial__quote">Al delivered a clean, accessible site with flawless performance.</blockquote>
+              <p class="testimonial__meta">Client 1 — Product Lead</p>
+            </article>
+            <article class="testimonial" aria-label="Testimonial 2">
+              <img src="assets/images/avatar2.jpg" alt="Avatar of Client 2" class="testimonial__avatar" loading="lazy">
+              <blockquote class="testimonial__quote">Insightful visualizations and attention to detail. Highly recommended.</blockquote>
+              <p class="testimonial__meta">Client 2 — Researcher</p>
+            </article>
+            <article class="testimonial" aria-label="Testimonial 3">
+              <img src="assets/images/avatar3.jpg" alt="Avatar of Client 3" class="testimonial__avatar" loading="lazy">
+              <blockquote class="testimonial__quote">Professional, responsive, and delivered ahead of schedule.</blockquote>
+              <p class="testimonial__meta">Client 3 — Founder</p>
+            </article>
+          </div>
+          <div class="carousel__controls">
+            <button class="carousel__btn" aria-label="Previous testimonial" id="carousel-prev">Prev</button>
+            <button class="carousel__btn" aria-label="Next testimonial" id="carousel-next">Next</button>
+          </div>
+          <div class="carousel__dots" aria-label="Slide indicators" role="tablist" id="carousel-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact" aria-label="Contact form">
+      <div class="container">
+        <h2 class="section__title">Contact</h2>
+        <form class="form" id="contact-form" novalidate>
+          <div class="form__group">
+            <label for="name" class="form__label">Name</label>
+            <input type="text" id="name" name="name" class="form__input" placeholder="Your name" required aria-required="true">
+            <p class="form__error" id="error-name" role="alert"></p>
+          </div>
+          <div class="form__group">
+            <label for="email" class="form__label">Email</label>
+            <input type="email" id="email" name="email" class="form__input" placeholder="you@example.com" required aria-required="true">
+            <p class="form__error" id="error-email" role="alert"></p>
+          </div>
+          <div class="form__group">
+            <label for="message" class="form__label">Message</label>
+            <textarea id="message" name="message" class="form__input" placeholder="Tell me about your project..." rows="5" required aria-required="true"></textarea>
+            <p class="form__error" id="error-message" role="alert"></p>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">Send message</button>
+            <p class="form__status" id="form-status" aria-live="polite"></p>
+          </div>
+        </form>
+        <p class="contact__note">No backend? We'll use your email app via mailto: as a fallback.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <ul class="social">
+        <li><a href="#" class="social__link" aria-label="GitHub">GitHub</a></li>
+        <li><a href="#" class="social__link" aria-label="LinkedIn">LinkedIn</a></li>
+        <li><a href="#" class="social__link" aria-label="Twitter">Twitter</a></li>
+      </ul>
+      <p class="footer__copy">&copy; <span id="year"></span> Al. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
