@@ -1,0 +1,173 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --accent: #6366f1;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --bar: #22c55e;
+  --compare-a: #ef4444;
+  --compare-b: #f59e0b;
+  --sorted: #10b981;
+  --btn: #1f2937;
+  --btn-hover: #374151;
+  --border: #1f2937;
+  --focus: #93c5fd;
+  --shadow: rgba(0,0,0,0.35);
+}
+
+/* Layout, controls, stats, viz, bar styles, etc. */
+/* (Use the CSS from the inline version you already have) */
+/* -----------------------------------------------------------
+   Echo Runner - Styles & Animations
+   - Modern palette, clean typography, subtle depth
+   - Responsive layout for mobile and desktop
+   ----------------------------------------------------------- */
+
+:root {
+  --bg: #0f172a;           /* Deep slate background */
+  --panel: #111827;        /* Panels */
+  --accent: #60a5fa;       /* Primary accent (blue) */
+  --accent-2: #34d399;     /* Secondary accent (green) */
+  --text: #e5e7eb;         /* Light text */
+  --muted: #9ca3af;        /* Muted text */
+  --danger: #f87171;       /* Danger/red for urgency */
+  --shadow: rgba(0,0,0,0.35);
+  --hud: rgba(17,24,39,0.6);
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  height: 100%;
+  background: radial-gradient(1200px 800px at 50% -200px, #1f2937 0%, var(--bg) 50%);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+}
+
+/* HUD at top */
+.hud {
+  position: fixed;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--hud);
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 24px var(--shadow);
+  z-index: 10;
+}
+.stat { display: flex; gap: 8px; align-items: baseline; }
+.stat .label { color: var(--muted); font-size: 12px; }
+.stat span:last-child { font-weight: 800; }
+
+/* Stage wrapping canvas */
+.stage {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 700px;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  background: #0b1223;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 16px 36px var(--shadow);
+}
+
+/* Overlays (start + game over) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(3px);
+  z-index: 20;
+}
+.overlay.show { display: grid; }
+
+.panel {
+  background: linear-gradient(180deg, #0b1223 0%, var(--panel) 100%);
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 20px 22px;
+  width: min(700px, 90vw);
+  box-shadow: 0 16px 36px var(--shadow);
+}
+.panel h1, .panel h2 {
+  margin: 0 0 8px;
+  letter-spacing: 0.2px;
+}
+.panel p { margin: 8px 0 16px; color: var(--muted); }
+.panel .help {
+  margin: 0 0 16px; padding-left: 18px;
+  color: var(--muted);
+}
+.row { display: flex; gap: 10px; }
+
+.btn {
+  background: #1f2937;
+  color: var(--text);
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+.btn:hover { background: #374151; }
+.btn:active { transform: translateY(1px); }
+.btn.ghost {
+  background: transparent;
+  border-color: #374151;
+}
+
+/* Joystick (mobile) */
+.joystick {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  border: 1px dashed #334155;
+  background: rgba(2,6,23,0.35);
+  backdrop-filter: blur(2px);
+  display: none; /* hidden on desktop by default */
+  touch-action: none;
+  z-index: 12;
+}
+.stick {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, var(--accent) 0%, #2563eb 65%, #1e40af 100%);
+  box-shadow: 0 8px 18px rgba(37,99,235,0.5);
+}
+
+/* Fog vignette (drawn in canvas, but we add a gentle vignette via box-shadow) */
+canvas {
+  box-shadow:
+    inset 0 0 120px rgba(0,0,0,0.6),
+    0 16px 36px var(--shadow);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hud { gap: 10px; padding: 8px 10px; }
+  .joystick { display: block; }
+}
+@media (max-width: 480px) {
+  .btn { padding: 9px 12px; }
+  .panel { padding: 16px 16px; }
+}

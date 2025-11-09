@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Echo Runner</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Start screen -->
+  <div class="overlay" id="startScreen">
+    <div class="panel">
+      <h1>Echo Runner</h1>
+      <p>Find the Echo Orbs in the mist. Each orb extends your vision—miss too many and the fog swallows you.</p>
+      <ul class="help">
+        <li><strong>Move:</strong> Arrow keys / WASD</li>
+        <li><strong>Mobile:</strong> Touch joystick (bottom-left)</li>
+        <li><strong>Objective:</strong> Collect orbs before the timer drains. Survive as long as you can.</li>
+      </ul>
+      <button class="btn" id="startBtn">Start</button>
+    </div>
+  </div>
+
+  <!-- Game over screen -->
+  <div class="overlay" id="gameOverScreen">
+    <div class="panel">
+      <h2>Game Over</h2>
+      <p id="finalStats"></p>
+      <div class="row">
+        <button class="btn" id="restartBtn">Restart</button>
+        <button class="btn ghost" id="backBtn">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <header class="hud">
+    <div class="stat"><span class="label">Score</span><span id="score">0</span></div>
+    <div class="stat"><span class="label">Time</span><span id="time">30.0</span></div>
+    <div class="stat"><span class="label">Level</span><span id="level">1</span></div>
+  </header>
+
+  <!-- Game canvas container -->
+  <main class="stage">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Touch joystick for mobile -->
+    <div class="joystick" id="joystick">
+      <div class="stick" id="stick"></div>
+    </div>
+  </main>
+
+  <!-- Minimal audio (optional) -->
+  <audio id="orbSound" preload="auto">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA..." type="audio/mp3">
+    <!-- Fallback: silent if data URI unsupported -->
+  </audio>
+  <audio id="levelUpSound" preload="auto">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA..." type="audio/mp3">
+  </audio>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
