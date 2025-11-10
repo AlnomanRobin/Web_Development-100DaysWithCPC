@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turbo Lane – Car Racing Game</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Start screen -->
+  <div class="overlay" id="startScreen">
+    <div class="panel">
+      <h1>Turbo Lane</h1>
+      <p>Dodge enemy cars and rack up points. Survive as long as you can!</p>
+      <ul class="help">
+        <li><strong>Move:</strong> Left/Right arrows or swipe/drag on mobile</li>
+        <li><strong>Goal:</strong> Avoid collisions. Score increases over time.</li>
+      </ul>
+      <div class="row">
+        <button class="btn" id="startBtn">Start Game</button>
+        <button class="btn ghost" id="toggleThemeBtn">Toggle Day/Night</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game over screen -->
+  <div class="overlay" id="gameOverScreen">
+    <div class="panel">
+      <h2>Game Over</h2>
+      <p id="finalStats"></p>
+      <div class="row">
+        <button class="btn" id="restartBtn">Restart</button>
+        <button class="btn ghost" id="menuBtn">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <header class="hud">
+    <div class="stat"><span class="label">Score</span><span id="score">0</span></div>
+    <div class="stat"><span class="label">High</span><span id="highScore">0</span></div>
+    <div class="stat"><span class="label">Speed</span><span id="speed">1x</span></div>
+    <div class="stat"><span class="label">Mode</span><span id="mode">Day</span></div>
+  </header>
+
+  <!-- Stage -->
+  <main class="stage">
+    <!-- Parallax background layers -->
+    <div class="sky"></div>
+    <div class="city"></div>
+
+    <!-- Road container -->
+    <div class="road" id="road">
+      <!-- Lane markings -->
+      <div class="lane lane-1"></div>
+      <div class="lane lane-2"></div>
+      <div class="lane lane-3"></div>
+
+      <!-- Player car -->
+      <div class="car player" id="playerCar">
+        <div class="spoiler"></div>
+        <div class="window"></div>
+        <div class="stripe"></div>
+      </div>
+
+      <!-- Enemy container (cars are appended here dynamically) -->
+      <div class="enemies" id="enemies"></div>
+
+      <!-- Coins/power-ups container (optional) -->
+      <div class="collectibles" id="collectibles"></div>
+    </div>
+
+    <!-- Touch steer pad (mobile) -->
+    <div class="touchpad" id="touchpad">
+      <div class="pad-left" id="padLeft">◀</div>
+      <div class="pad-right" id="padRight">▶</div>
+    </div>
+  </main>
+
+  <!-- Minimal audio: data URIs as placeholders (replace with real files if desired) -->
+  <audio id="bgm" loop>
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA" type="audio/mp3">
+  </audio>
+  <audio id="hitSound">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA" type="audio/mp3">
+  </audio>
+  <audio id="coinSound">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA" type="audio/mp3">
+  </audio>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
