@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopWave — Cart</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="index.html">ShopWave</a>
+      <div class="nav-actions">
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode">
+          <span class="icon">🌙</span>
+        </button>
+        <a class="cart-link" href="cart.html">
+          <span class="icon">🛒</span>
+          <span class="cart-count" id="navCartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container cart-page">
+    <h2>Your cart</h2>
+    <div id="cartContainer" class="cart-container">
+      <!-- Cart items injected via JS -->
+    </div>
+
+    <div class="cart-summary">
+      <div>
+        <p><strong>Subtotal:</strong> <span id="cartSubtotal">৳0</span></p>
+        <p><strong>VAT (5%):</strong> <span id="cartTax">৳0</span></p>
+        <p><strong>Total:</strong> <span id="cartTotal">৳0</span></p>
+      </div>
+      <div class="cart-actions">
+        <a href="products.html" class="btn btn-outline">Continue shopping</a>
+        <a href="checkout.html" class="btn btn-primary">Checkout</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> ShopWave</p>
+    </div>
+  </footer>
+</body>
+</html>

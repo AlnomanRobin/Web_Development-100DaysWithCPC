@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopWave — Products</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="index.html">ShopWave</a>
+      <form class="nav-search" id="productsSearchForm">
+        <input type="text" id="productsSearchInput" placeholder="Search products..." />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div class="nav-actions">
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode">
+          <span class="icon">🌙</span>
+        </button>
+        <a class="cart-link" href="cart.html">
+          <span class="icon">🛒</span>
+          <span class="cart-count" id="navCartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container products-page">
+      <aside class="filters">
+        <h2>Filters</h2>
+        <div class="filter-group">
+          <label for="categorySelect">Category</label>
+          <select id="categorySelect">
+            <option value="All">All</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Accessories">Accessories</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="priceRange">Max price</label>
+          <input type="range" id="priceRange" min="10" max="1000" step="10" />
+          <div class="range-info">
+            <span id="priceRangeValue">1000</span>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label for="ratingSelect">Min rating</label>
+          <select id="ratingSelect">
+            <option value="0">All</option>
+            <option value="3">3★+</option>
+            <option value="4">4★+</option>
+            <option value="4.5">4.5★+</option>
+          </select>
+        </div>
+        <button id="clearFiltersBtn" class="btn btn-outline">Clear</button>
+      </aside>
+
+      <section class="products-grid">
+        <h2>All products</h2>
+        <div class="grid grid-3" id="productsGrid"></div>
+      </section>
+  </main>
+
+  <div class="toast" id="toast">Added to cart</div>
+
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> ShopWave</p>
+    </div>
+  </footer>
+</body>
+</html>

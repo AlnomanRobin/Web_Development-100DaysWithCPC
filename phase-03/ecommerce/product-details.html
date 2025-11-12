@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopWave — Product details</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="index.html">ShopWave</a>
+      <div class="nav-actions">
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode">
+          <span class="icon">🌙</span>
+        </button>
+        <a class="cart-link" href="cart.html">
+          <span class="icon">🛒</span>
+          <span class="cart-count" id="navCartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container product-details">
+    <div id="productDetailsContainer" class="details-grid">
+      <!-- Populated by JS based on ?id= -->
+    </div>
+  </main>
+
+  <div class="toast" id="toast">Added to cart</div>
+
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> ShopWave</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopWave — Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="index.html">ShopWave</a>
+      <div class="nav-actions">
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode">
+          <span class="icon">🌙</span>
+        </button>
+        <a class="cart-link" href="cart.html">
+          <span class="icon">🛒</span>
+          <span class="cart-count" id="navCartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container checkout-page">
+    <h2>Checkout</h2>
+    <form id="checkoutForm" class="checkout-form">
+      <div class="form-row">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" required />
+      </div>
+      <div class="form-row">
+        <label for="address">Address</label>
+        <textarea id="address" rows="3" required></textarea>
+      </div>
+      <div class="form-row">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" required />
+      </div>
+      <div class="form-row">
+        <label for="payment">Payment option</label>
+        <select id="payment" required>
+          <option value="COD">Cash on Delivery</option>
+          <option value="Card">Card</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> ShopWave</p>
+    </div>
+  </footer>
+</body>
+</html>
