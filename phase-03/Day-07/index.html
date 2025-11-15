@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Analog Clock</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="clock" aria-label="Analog clock showing current time">
+      <div class="face">
+        <div class="marks" id="marks"></div>
+        <div class="glass"></div>
+      </div>
+
+      <!-- Hands (order matters: hour below minute below second) -->
+      <div class="hand hour" id="hourHand" aria-hidden="true"></div>
+      <div class="hand minute" id="minuteHand" aria-hidden="true"></div>
+      <div class="hand second" id="secondHand" aria-hidden="true"></div>
+
+      <!-- Center cap -->
+      <div class="hub" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
