@@ -127,8 +127,9 @@ html, body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform-origin: center center;
-  color: var(--number-color);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  color: var(--number-color, #000);
   font-weight: 600;
   font-feature-settings: "tnum" 1;
   text-shadow:
@@ -138,6 +139,7 @@ html, body {
   line-height: 1;
   user-select: none;
 }
+
 
 /* ================================
    Hands
