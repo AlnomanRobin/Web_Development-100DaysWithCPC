@@ -1,0 +1,222 @@
+/* ================================
+   Theme variables (easy customization)
+   ================================ */
+:root {
+  /* Background */
+  --bg-start: #141e30;
+  --bg-end: #243b55;
+
+  /* Clock face */
+  --face-bg: #f7f9fc;
+  --face-shadow: rgba(0, 0, 0, 0.15);
+
+  /* Ticks and numerals */
+  --tick-color: #5b687a;
+  --hour-tick-color: #2d3642;
+  --number-color: #2d3642;
+
+  /* Hands */
+  --hour-hand: #2d3642;
+  --minute-hand: #3b7ddd;
+  --second-hand: #e63b2e;
+  --hand-shadow: rgba(0, 0, 0, 0.25);
+
+  /* Center cap and accents */
+  --center-cap: #1f2530;
+  --accent: rgba(59, 125, 221, 0.12);
+}
+
+/* ================================
+   Page layout
+   ================================ */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+}
+
+/* Center everything vertically & horizontally */
+.wrap {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vmin;
+  box-sizing: border-box;
+}
+
+/* ================================
+   Clock container
+   ================================ */
+.clock {
+  /* Responsive sizing: scales with viewport, caps max size */
+  width: clamp(240px, 55vmin, 560px);
+  height: clamp(240px, 55vmin, 560px);
+  position: relative;
+  border-radius: 50%;
+  background:
+    radial-gradient(120% 120% at 50% 50%, #ffffff 0%, var(--face-bg) 45%, #eef2f7 70%, #e8edf4 100%);
+  box-shadow:
+    0 18px 40px var(--face-shadow),
+    inset 0 6px 24px rgba(255, 255, 255, 0.5),
+    inset 0 -10px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  outline: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* thin accent ring near edge */
+.clock::after {
+  content: "";
+  position: absolute;
+  inset: 2%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--accent);
+  pointer-events: none;
+}
+
+/* ================================
+   Face layers
+   ================================ */
+.face {
+  position: absolute;
+  inset: 5%;
+  border-radius: 50%;
+}
+
+/* container for ticks and numbers */
+.marks {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+/* ================================
+   Ticks
+   ================================ */
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 50% calc(50% - 44%);
+  width: 2px;
+  height: 10%;
+  background: var(--tick-color);
+  border-radius: 2px;
+  opacity: 0.75;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* hour ticks: thicker/longer */
+.tick.hour {
+  width: 3.5px;
+  height: 12%;
+  background: var(--hour-tick-color);
+  opacity: 0.95;
+}
+
+/* minute ticks shorter */
+.tick.minute {
+  height: 8%;
+}
+
+/* ================================
+   Numerals
+   ================================ */
+.number {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  color: var(--number-color);
+  font-weight: 600;
+  font-feature-settings: "tnum" 1;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.65),
+    0 2px 6px rgba(0,0,0,0.08);
+  font-size: clamp(16px, 4.2vmin, 28px);
+  line-height: 1;
+  user-select: none;
+}
+
+/* ================================
+   Hands
+   ================================ */
+.hand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 50% 90%;
+  will-change: transform;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px var(--hand-shadow);
+}
+
+/* hour hand: shorter, thicker */
+.hand.hour {
+  width: clamp(6px, 1.1vmin, 10px);
+  height: 26%;
+  background: linear-gradient(180deg, #3a4452 0%, var(--hour-hand) 100%);
+}
+
+/* minute hand: longer, slimmer */
+.hand.minute {
+  width: clamp(4px, 0.9vmin, 8px);
+  height: 34%;
+  background: linear-gradient(180deg, #6fa1ff 0%, var(--minute-hand) 100%);
+}
+
+/* second hand: very thin with counterweight */
+.hand.second {
+  width: clamp(2px, 0.6vmin, 4px);
+  height: 40%;
+  background: var(--second-hand);
+  box-shadow: 0 4px 10px rgba(230, 59, 46, 0.35);
+}
+
+/* counterweight circle on second hand */
+.hand.second::after {
+  content: "";
+  position: absolute;
+  bottom: -8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(6px, 1.3vmin, 10px);
+  height: clamp(6px, 1.3vmin, 10px);
+  border-radius: 50%;
+  background: var(--second-hand);
+  box-shadow: 0 2px 6px rgba(230, 59, 46, 0.35);
+}
+
+/* center cap */
+.hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(16px, 3vmin, 22px);
+  height: clamp(16px, 3vmin, 22px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #3a3f4a 0%, var(--center-cap) 60%, #0c1016 100%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.35),
+    inset 0 2px 4px rgba(255,255,255,0.45);
+}
+
+/* ================================
+   Glass highlight (subtle)
+   ================================ */
+.glass {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(75% 75% at 30% 25%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 50%, transparent 70%);
+  mix-blend-mode: screen;
+}
+
+/* Ensure crisp rendering on high DPI */
+@media (resolution: 2dppx) {
+  .tick { transform-origin: 50% calc(50% - 44%); }
+}
