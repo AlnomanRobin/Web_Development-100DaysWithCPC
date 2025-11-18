@@ -45,6 +45,6 @@ if (isset($_POST['signIn'])) {
     else{
         echo "Invalid Email or Password";
     }
-}
-    
+
+}   
 ?>
