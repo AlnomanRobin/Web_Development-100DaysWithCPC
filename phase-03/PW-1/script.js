@@ -57,26 +57,6 @@
     lastScroll = current;
   },{passive:true});
 
-  // Social sidebar hide/show on scroll (same pattern as header)
-  const socialSidebar = document.querySelector('.social-sidebar');
-  if(socialSidebar){
-    // initialize visible
-    socialSidebar.style.transform = 'translateX(0)';
-    let lastSideScroll = window.scrollY;
-    window.addEventListener('scroll', ()=>{
-      const cur = window.scrollY;
-      if(cur > lastSideScroll && cur > 120){
-        // scrolling down -> hide to left
-        socialSidebar.style.transform = 'translateX(-120%)';
-        socialSidebar.style.opacity = '0';
-      } else {
-        socialSidebar.style.transform = 'translateX(0)';
-        socialSidebar.style.opacity = '1';
-      }
-      lastSideScroll = cur;
-    },{passive:true});
-  }
-
   // Gallery lightbox
   galleryGrid.querySelectorAll('.gallery-item').forEach(item=>{
     item.addEventListener('click',e=>{
@@ -94,23 +74,6 @@
   });
   lightbox.addEventListener('click',e=>{
     if(e.target === lightbox) lightboxClose.click();
-  });
-
-  // Project card view -> open lightbox with project image + caption
-  document.querySelectorAll('.project-view').forEach(link=>{
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-      const href = this.getAttribute('href');
-      const title = this.dataset.title || '';
-      lightboxImg.src = href;
-      const captionEl = document.getElementById('lightboxCaption');
-      if(captionEl){
-        captionEl.textContent = title;
-        captionEl.setAttribute('aria-hidden', 'false');
-      }
-      lightbox.style.display = 'flex';
-      lightbox.setAttribute('aria-hidden','false');
-    });
   });
 
   // Contact form validation
@@ -154,28 +117,4 @@
     },{threshold:0.12});
     revealTargets.forEach(el=>io.observe(el));
   }catch(err){console.warn('Reveal observer failed',err)}
-
-  // Subtitle cycling animation: show each phrase in sequence
-  (function(){
-    const phrases = document.querySelectorAll('.subtitle .phrase');
-    if(!phrases || phrases.length === 0) return;
-    let idx = 0;
-    const show = i => {
-      phrases.forEach((p, j)=> p.classList.toggle('active', j === i));
-    };
-    // initial
-    show(idx);
-    // cycle every 2000ms
-    const interval = 2200;
-    let timer = setInterval(()=>{
-      idx = (idx + 1) % phrases.length;
-      show(idx);
-    }, interval);
-    // pause on hover for accessibility
-    const container = document.querySelector('.subtitle');
-    if(container){
-      container.addEventListener('mouseenter', ()=> clearInterval(timer));
-      container.addEventListener('mouseleave', ()=> { timer = setInterval(()=>{ idx = (idx + 1) % phrases.length; show(idx); }, interval); });
-    }
-  })();
 })();
