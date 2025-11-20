@@ -178,4 +178,42 @@
       container.addEventListener('mouseleave', ()=> { timer = setInterval(()=>{ idx = (idx + 1) % phrases.length; show(idx); }, interval); });
     }
   })();
+
+  // Sequential skill highlight animation
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const skills = Array.from(document.querySelectorAll('.skill-card'));
+    if(!skills.length) return;
+    let idx = 0;
+    let running = true;
+    const highlightClass = 'highlight';
+    const intervalMs = 900;
+
+    function clearHighlights(){ skills.forEach(s=>s.classList.remove(highlightClass)); }
+    function step(){
+      clearHighlights();
+      const cur = skills[idx % skills.length];
+      if(cur) cur.classList.add(highlightClass);
+      idx = (idx + 1) % skills.length;
+    }
+
+    // start with a small delay so initial reveal animations run first
+    let timer = setInterval(step, intervalMs);
+    // run one immediate pass after 400ms (for nicer initial feel)
+    setTimeout(step, 400);
+
+    // pause on hover/focus for accessibility
+    skills.forEach(s => {
+      s.addEventListener('mouseenter', ()=>{ running = false; clearInterval(timer); });
+      s.addEventListener('mouseleave', ()=>{ if(!running){ timer = setInterval(step, intervalMs); running = true; } });
+      s.addEventListener('focus', ()=>{ running = false; clearInterval(timer); }, true);
+      s.addEventListener('blur', ()=>{ if(!running){ timer = setInterval(step, intervalMs); running = true; } }, true);
+    });
+
+    // stop when page hidden to save cycles
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden){ clearInterval(timer); }
+      else { if(!running) timer = setInterval(step, intervalMs); }
+    });
+  })();
 })();

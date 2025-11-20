@@ -21,6 +21,9 @@ body{
   margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
   background:var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
+.container{padding-left:16px;padding-right:16px}
+/* base type scale for consistent sizing across devices */
+html{font-size:16px}
 .container{width:92%;max-width:1100px;margin:0 auto}
 header.site-header{backdrop-filter: blur(8px);position:sticky;top:0;z-index:60;transition:transform .28s ease,background .28s ease;padding:14px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
@@ -42,6 +45,11 @@ header.site-header{backdrop-filter: blur(8px);position:sticky;top:0;z-index:60;t
 .social-link:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(2,6,23,0.08)}
 .social-link:active{transform:translateY(-1px)}
 .social-link + .social-link{margin-left:8px}
+
+/* image-based social icons (hero) — keep same sizing & behavior as SVGs */
+.social-link img{width:20px;height:20px;display:block;object-fit:contain;border-radius:6px}
+.hero-socials .social-link{padding:6px;border-radius:10px;overflow:hidden;transition:transform .22s,box-shadow .22s,filter .22s}
+.hero-socials .social-link:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(2,6,23,0.08)}
 
 /* visually hidden text for screen readers */
 .sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
@@ -101,6 +109,54 @@ header.site-header{backdrop-filter: blur(8px);position:sticky;top:0;z-index:60;t
 .skill-card{background:var(--card);padding:20px 18px;border-radius:16px;box-shadow:0 10px 30px rgba(15,23,42,0.06);color:rgba(10,10,10,0.85);text-align:center;font-weight:700;font-size:0.95rem;min-height:64px;display:flex;align-items:center;justify-content:center;transition:transform .36s cubic-bezier(.2,.9,.2,1),box-shadow .36s,filter .36s,opacity .6s}
 .skill-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 40px rgba(15,23,42,0.09);filter:brightness(1.01)}
 .skill-card:focus{outline:2px solid rgba(16,185,129,0.12);outline-offset:3px}
+
+/* Dark mode: improve contrast for skill cards */
+.dark .skill-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+
+/* Pop-in entrance animation for skill cards (works with existing reveal-on-scroll) */
+@keyframes popIn {
+  from{opacity:0;transform:translateY(10px) scale(.995)}
+  to{opacity:1;transform:none}
+}
+.skill-card.reveal-on-scroll{opacity:0;transform:translateY(10px)}
+.skill-card.reveal{animation:popIn .52s cubic-bezier(.2,.9,.2,1) both}
+
+/* highlight state used by JS: sequential green-fill for a 'hacker' accent */
+.skill-card.highlight{background:linear-gradient(90deg, var(--accent-color), #16a34a 70%);color:#00321a;box-shadow:0 20px 40px rgba(16,185,129,0.14);border:1px solid rgba(16,185,129,0.12);transform:translateY(-6px) scale(1.01)}
+.skill-card.highlight h3, .skill-card.highlight p{color:inherit}
+.skill-card.highlight{transition:background .45s cubic-bezier(.2,.9,.2,1),color .36s,transform .36s,box-shadow .36s}
+
+@media (prefers-reduced-motion: reduce){
+  .skill-card.highlight{transition:none;transform:none}
+}
+
+/* subtle idle float for skill cards (very gentle) */
+@keyframes idleFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+  100%{transform:translateY(0)}
+}
+
+/* gentle pulse/glow for highlighted card */
+@keyframes highlightPulse{
+  0%{box-shadow:0 14px 34px rgba(16,185,129,0.06);transform:translateY(-6px) scale(1.01)}
+  50%{box-shadow:0 26px 56px rgba(16,185,129,0.12);transform:translateY(-7px) scale(1.015)}
+  100%{box-shadow:0 14px 34px rgba(16,185,129,0.06);transform:translateY(-6px) scale(1.01)}
+}
+
+@media (prefers-reduced-motion: no-preference){
+  /* apply very slow idle float when not hovered to avoid motion overload */
+  .skill-card:not(:hover){
+    animation: idleFloat 10s ease-in-out infinite;
+  }
+  /* highlight gets a gentle pulse to draw attention */
+  .skill-card.highlight{animation:highlightPulse 2.8s ease-in-out infinite}
+}
+
+@media (max-width:600px){
+  /* reduce idle motion on small screens for UX */
+  .skill-card:not(:hover){animation:none}
+}
 .experience{padding:60px 0}
 .timeline{display:flex;flex-direction:column;gap:12px}
 .timeline-item{display:flex;gap:18px;align-items:center}
@@ -111,7 +167,7 @@ header.site-header{backdrop-filter: blur(8px);position:sticky;top:0;z-index:60;t
 .project-card{background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
 .project-card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
 .project-card h3{display:flex;align-items:center;gap:8px}
-.badge{background:linear-gradient(90deg,var(--accent-color),#7c3aed);color:#fff;padding:4px 8px;border-radius:999px;font-size:0.72rem;font-weight:700}
+.badge{background:linear-gradient(90deg,var(--accent-color),#7c3aed);color:#ffffff;padding:4px 8px;border-radius:999px;font-size:0.72rem;font-weight:700}
 
 /* thumbnail wrapper for consistent sizing and subtle animation */
 .thumb{width:100%;height:160px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:8px;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(255,255,255,0.01));}
@@ -136,7 +192,24 @@ footer.site-footer{padding:30px 0;text-align:center;color:var(--muted)}
 .contact-info .card.soft{padding:12px;border-radius:14px;min-width:0;background:var(--card);box-shadow:0 8px 20px rgba(2,6,23,0.04);}
 .contact-info .card.soft h3{margin:0 0 6px;font-size:0.95rem;color:rgba(10,10,10,0.8)}
 .contact-info .card.soft p{margin:0;font-size:0.95rem;color:var(--muted)}
-.contact-info .card.soft a{color:var(--accent-color);text-decoration:underline}
+.contact-info .card.soft a{color:var(--accent-color);text-decoration:underline;font-weight:700}
+
+/* Improve contrast & visibility in dark mode for contact cards and links */
+.dark .contact-info .card.soft{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 28px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+.dark .contact-info .card.soft h3{color:#9fb3c8}
+.dark .contact-info .card.soft p{color:var(--muted)}
+.dark .contact-info .card.soft a{color:#34d399;text-decoration:underline}
+
+/* subtle reveal and hover microinteraction for contact cards */
+.contact-info .card.soft{transition:transform .32s cubic-bezier(.2,.9,.2,1),box-shadow .32s,background .32s}
+.contact-info .card.soft:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(2,6,23,0.12)}
+.contact-info .card.soft.reveal{animation:popIn .46s cubic-bezier(.2,.9,.2,1) both}
+.contact-info .card.soft a{transition:color .22s ease,transform .22s ease}
+.contact-info .card.soft a:hover{transform:translateX(2px)}
+
+@media (prefers-reduced-motion: reduce){
+  .contact-info .card.soft, .contact-info .card.soft.reveal, .contact-info .card.soft:hover{transition:none;animation:none;transform:none}
+}
 
 @media (max-width:900px){
   .contact-grid{grid-template-columns:1fr;gap:18px}
@@ -154,11 +227,74 @@ footer.site-footer{padding:30px 0;text-align:center;color:var(--muted)}
   .nav.open{transform:translateY(0)}
   .nav ul{flex-direction:column;padding:20px}
 }
+/* Better spacing for medium screens */
+@media (max-width:1100px){
+  .hero-grid{grid-template-columns:1fr 340px;gap:18px}
+  .image-frame{width:320px;height:320px}
+}
+
+/* Phone-friendly adjustments */
+@media (max-width:600px){
+  html{font-size:15px}
+  .hero-content h1{font-size:28px}
+  .subtitle{font-size:0.95rem}
+  .lead{font-size:0.95rem}
+  .image-frame{width:220px;height:220px}
+  .projects-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+  .thumb{height:120px}
+  .project-card img{height:120px}
+  .skill-card{font-size:0.88rem;padding:14px}
+  .contact-info .card.soft{padding:10px}
+  .hero-cta{flex-direction:column;gap:10px}
+  .btn{width:100%}
+  /* reduce motion on small screens */
+  .skill-card:not(:hover){animation:none}
+  .skill-card.highlight{animation:none}
+}
+
+/* ensure images never overflow their containers */
+img{max-width:100%;height:auto;display:block}
+
+/* reduce some animation intensity on medium screens */
+@media (max-width:900px){
+  .hero-content h1{animation:none}
+  .subtitle .phrase{transition:none}
+}
 @media (max-width:600px){
   .thumb{height:140px}
 }
 @media (prefers-reduced-motion: no-preference){
   .hero-content h1, .subtitle, .lead, .image-frame{transition:transform .6s cubic-bezier(.2,.9,.2,1),opacity .6s}
+}
+
+/* Continuous hero heading animation: subtle float + gradient shine */
+@keyframes floatSubtle {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+@keyframes shine {
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
+.hero-content h1{
+  /* enable gradient text for animation while preserving fallback color */
+  background-image:linear-gradient(90deg,var(--accent-color) 0%,#7c3aed 45%,#06b6d4 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  display:inline-block;
+}
+
+/* combine float + moving gradient; respect reduced motion */
+@media (prefers-reduced-motion: no-preference){
+  .hero-content h1{animation:floatSubtle 6s ease-in-out infinite, shine 4.6s linear infinite}
+}
+@media (prefers-reduced-motion: reduce){
+  /* fallback: visible solid color for accessibility */
+  .hero-content h1{color:rgba(10,10,10,0.9);background:none;-webkit-background-clip:auto}
+  :root.dark .hero-content h1{color:#fff}
 }
 
 /* Reveal on scroll */
