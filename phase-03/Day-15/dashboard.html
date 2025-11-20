@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PatientHub — Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+</head>
+<body>
+  <div class="app-grid">
+    <nav class="topbar">
+      <button id="menuToggle" class="icon-btn">☰</button>
+      <div class="brand">
+        <img src="assets/img/logo.png" alt="logo" class="logo-xs"> PatientHub
+      </div>
+      <div class="top-actions">
+        <span id="welcomeUser">Hello</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </nav>
+
+    <aside id="sidebar" class="sidebar slideUp">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="records.html">Doctor Visits</a></li>
+        <li><a href="prescriptions.html">Prescriptions</a></li>
+        <li><a href="test-reports.html">Test Reports</a></li>
+      </ul>
+    </aside>
+
+    <main class="main"> 
+      <section class="welcome-card fadeIn">
+        <h2 id="greet">Welcome</h2>
+        <p class="muted">Here's a quick view of your recent activity.</p>
+      </section>
+
+      <section class="cards grid">
+        <article class="card zoomIn" data-link="profile.html">
+          <div class="icon">👤</div>
+          <h3>Profile</h3>
+          <p>View and edit your profile</p>
+        </article>
+
+        <article class="card zoomIn" data-link="records.html">
+          <div class="icon">🩺</div>
+          <h3>Doctor Visits</h3>
+          <p>Recent consultations</p>
+        </article>
+
+        <article class="card zoomIn" data-link="prescriptions.html">
+          <div class="icon">💊</div>
+          <h3>Prescriptions</h3>
+          <p>Uploaded prescriptions</p>
+        </article>
+
+        <article class="card zoomIn" data-link="test-reports.html">
+          <div class="icon">📄</div>
+          <h3>Test Reports</h3>
+          <p>Lab reports & imaging</p>
+        </article>
+      </section>
+
+      <section>
+        <h3>Latest Records</h3>
+        <div id="latestList" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

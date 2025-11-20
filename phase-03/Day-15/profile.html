@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PatientHub — Profile</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+</head>
+<body>
+  <div class="app-grid">
+    <nav class="topbar">
+      <button id="menuToggle2" class="icon-btn">☰</button>
+      <div class="brand"><img src="assets/img/logo.png" alt="logo" class="logo-xs"> PatientHub</div>
+      <div class="top-actions"><button id="logoutBtn2" class="btn ghost">Logout</button></div>
+    </nav>
+
+    <aside id="sidebar2" class="sidebar slideUp">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="records.html">Doctor Visits</a></li>
+        <li><a href="prescriptions.html">Prescriptions</a></li>
+        <li><a href="test-reports.html">Test Reports</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>Edit Profile</h2>
+        <form id="profileForm" class="profile-form">
+          <label>Name<input id="pName" type="text" required></label>
+          <label>Age<input id="pAge" type="number"></label>
+          <label>Gender<select id="pGender"><option>Prefer not to say</option><option>Male</option><option>Female</option><option>Other</option></select></label>
+          <label>Phone<input id="pPhone" type="tel"></label>
+          <label>Blood Group<input id="pBlood" type="text" placeholder="A+"></label>
+          <label>Address<textarea id="pAddress"></textarea></label>
+          <label>Emergency Contact<input id="pEmergency" type="tel"></label>
+
+          <div class="btn-row">
+            <button class="btn primary" type="submit">Save Profile</button>
+            <button id="resetProfile" class="btn ghost" type="button">Reset</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

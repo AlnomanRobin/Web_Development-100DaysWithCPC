@@ -1,0 +1,47 @@
+/* Base styles and variables for PatientHub - mobile first */
+:root{
+  --bg1: linear-gradient(135deg,#f7f8ff,#e7f0ff);
+  --glass: rgba(255,255,255,0.6);
+  --accent: linear-gradient(90deg,#6a11cb,#2575fc);
+  --card-bg: rgba(255,255,255,0.55);
+  --muted:#6b7280;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:#111}
+body.bg-gradient{background:radial-gradient(circle at 10% 20%, #eaf2ff, transparent 30%), linear-gradient(180deg,#f4f7ff,#fff);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.container{max-width:900px;width:100%}
+.center-card{background:var(--card-bg);backdrop-filter: blur(8px) saturate(120%);border-radius:26px;padding:36px;text-align:center;box-shadow:0 8px 30px rgba(18,25,40,0.08)}
+.logo{width:96px;height:auto;margin-bottom:8px}
+.logo-sm{width:72px}
+.logo-xs{width:28px}
+h1{margin:8px 0 0;font-size:28px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.btn-row{display:flex;gap:12px;justify-content:center;margin-top:18px}
+.btn{padding:10px 16px;border-radius:12px;border:none;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);color:white;box-shadow:0 6px 18px rgba(37,117,252,0.18)}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+.btn.full{width:100%}
+
+/* Auth pages */
+.auth-card{max-width:980px;width:100%;display:flex;gap:24px;background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.5));backdrop-filter:blur(8px);border-radius:22px;padding:18px}
+.auth-left{flex:1;padding:18px}
+.auth-form{flex:1;padding:18px;display:flex;flex-direction:column;gap:12px}
+.auth-form label{display:flex;flex-direction:column;font-size:14px;color:#222}
+.auth-form input,.auth-form textarea{padding:10px;border-radius:12px;border:1px solid rgba(16,24,40,0.06);margin-top:8px}
+.preview{max-width:120px;margin-top:8px;border-radius:12px;border:1px solid rgba(0,0,0,0.06)}
+
+/* Responsive */
+@media(min-width:768px){
+  .auth-card{padding:28px}
+  h1{font-size:36px}
+}
+@media(min-width:1024px){
+  .container{max-width:1100px}
+}
+
+/* Small utilities */
+.center{display:flex;align-items:center;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.muted{color:var(--muted)}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PatientHub — Doctor Visits</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+</head>
+<body>
+  <div class="app-grid">
+    <nav class="topbar">
+      <button id="menuToggle3" class="icon-btn">☰</button>
+      <div class="brand"><img src="assets/img/logo.png" alt="logo" class="logo-xs"> PatientHub</div>
+      <div class="top-actions"><button id="logoutBtn3" class="btn ghost">Logout</button></div>
+    </nav>
+
+    <aside id="sidebar3" class="sidebar slideUp">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="records.html">Doctor Visits</a></li>
+        <li><a href="prescriptions.html">Prescriptions</a></li>
+        <li><a href="test-reports.html">Test Reports</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>Doctor Visit Records</h2>
+        <form id="recordForm">
+          <label>Doctor Name<input id="docName" type="text" required></label>
+          <label>Visit Date<input id="visitDate" type="date" required></label>
+          <label>What happened<textarea id="whatHappened"></textarea></label>
+          <label>Diagnosis<textarea id="diagnosis"></textarea></label>
+          <label>Medicine advised<textarea id="medicine"></textarea></label>
+          <label>Upload Prescription
+            <input id="prescriptionFile" type="file" accept="image/*">
+            <img id="presPreview" class="preview" alt="preview">
+          </label>
+
+          <div class="btn-row">
+            <button class="btn primary" type="submit">Save Record</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>Your Records</h3>
+        <div id="recordsList" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

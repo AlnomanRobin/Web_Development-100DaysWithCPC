@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PatientHub — Prescriptions</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+</head>
+<body>
+  <div class="app-grid">
+    <nav class="topbar">
+      <button id="menuToggle4" class="icon-btn">☰</button>
+      <div class="brand"><img src="assets/img/logo.png" alt="logo" class="logo-xs"> PatientHub</div>
+      <div class="top-actions"><button id="logoutBtn4" class="btn ghost">Logout</button></div>
+    </nav>
+
+    <aside id="sidebar4" class="sidebar slideUp">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="records.html">Doctor Visits</a></li>
+        <li><a href="prescriptions.html">Prescriptions</a></li>
+        <li><a href="test-reports.html">Test Reports</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>Prescriptions</h2>
+        <p class="muted">Click any image to view full size.</p>
+        <div id="presGrid" class="grid-prescriptions"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal for viewing full image -->
+  <div id="imageModal" class="image-modal" style="display:none">
+    <div class="image-modal-content zoomIn">
+      <button id="closeModal" class="btn ghost">Close</button>
+      <img id="modalImg" src="" alt="full">
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

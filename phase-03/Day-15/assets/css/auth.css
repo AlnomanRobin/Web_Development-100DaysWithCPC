@@ -1,0 +1,17 @@
+/* Styles specific to login/signup pages with glassmorphism */
+.bg-gradient{background:linear-gradient(135deg,#eef2ff,#f7fff9)}
+.auth-card{align-items:center}
+.auth-left h2{margin:8px 0}
+.auth-form input[type=file]{padding:6px}
+.small{font-size:12px}
+
+/* Button ripple effect */
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;left:50%;top:50%;width:0;height:0;background:rgba(255,255,255,0.3);border-radius:50%;transform:translate(-50%,-50%);transition:width .4s ease,height .4s ease}
+.btn:active:after{width:200px;height:200px}
+
+/* Form widths for larger screens */
+@media(min-width:768px){
+  .auth-card{padding:28px}
+  .auth-form{max-width:420px}
+}
