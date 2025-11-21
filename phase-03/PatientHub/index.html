@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PatientHub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animation.css" />
+</head>
+<body>
+  <!-- Shared Navbar -->
+  <header class="navbar fadeIn">
+    <div class="brand">
+      <img src="assets/img/logo.png" alt="PatientHub Logo">
+      <div class="title">PatientHub</div>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="records.html">Doctor Visits</a>
+      <a href="prescriptions.html">Prescriptions</a>
+      <a href="test-reports.html">Test Reports</a>
+      <span id="navUser" class="muted hidden"></span>
+      <a id="navLogin" href="login.html">Login</a>
+      <button id="navLogout" class="hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main class="auth-wrapper">
+    <section class="auth-card slideUp">
+      <h1 style="text-align:center;margin-bottom:8px;">Manage your medical records beautifully</h1>
+      <p class="muted" style="text-align:center;">Securely store visits, prescriptions, and test reports. Access anytime, anywhere.</p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:16px;">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn btn-success">Create Account</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
