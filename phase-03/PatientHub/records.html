@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doctor Visits • PatientHub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/animation.css" />
+</head>
+<body>
+  <!-- Shared Navbar -->
+  <header class="navbar fadeIn">
+    <div class="brand">
+      <img src="assets/img/logo.png" alt="PatientHub Logo">
+      <div class="title">PatientHub</div>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="records.html">Doctor Visits</a>
+      <a href="prescriptions.html">Prescriptions</a>
+      <a href="test-reports.html">Test Reports</a>
+      <span id="navUser" class="muted hidden"></span>
+      <a id="navLogin" href="login.html">Login</a>
+      <button id="navLogout" class="hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main class="app-layout">
+    <section class="content slideUp">
+      <h2>Add Doctor Visit</h2>
+      <form id="visitForm" class="form">
+        <div class="form-row"><label>Doctor Name</label><input id="visitDoctor" class="input" /></div>
+        <div class="form-row"><label>Date</label><input id="visitDate" type="date" class="input" /></div>
+        <div class="form-row"><label>Notes</label><textarea id="visitNotes" class="textarea"></textarea></div>
+        <div class="form-row"><label>Diagnosis</label><input id="visitDiagnosis" class="input" /></div>
+        <div class="form-row"><label>Medicines</label><input id="visitMedicines" class="input" /></div>
+        <div class="form-row"><label>Upload Prescription</label><input id="visitImage" type="file" accept="image/*" /></div>
+        <img id="visitPreview" class="hidden" style="max-height:150px;" />
+        <button class="btn">Save Visit</button>
+      </form>
+      <h3>Your Visits</h3>
+      <div id="visitList" class="record-list"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prescriptions • PatientHub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/animation.css" />
+</head>
+<body>
+  <!-- Shared Navbar -->
+  <header class="navbar fadeIn">
+    <div class="brand">
+      <img src="assets/img/logo.png" alt="PatientHub Logo">
+      <div class="title">PatientHub</div>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="records.html">Doctor Visits</a>
+      <a href="prescriptions.html">Prescriptions</a>
+      <a href="test-reports.html">Test Reports</a>
+      <span id="navUser" class="muted hidden"></span>
+      <a id="navLogin" href="login.html">Login</a>
+      <button id="navLogout" class="hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main class="app-layout">
+    <section class="content slideUp">
+      <h2>Upload Prescription</h2>
+      <form id="prescriptionForm" class="form">
+        <div class="form-row"><label>Doctor Name</label><input id="presDoctor" class="input" /></div>
+        <div class="form-row"><label>Date</label><input id="presDate" type="date" class="input" /></div>
+        <div class="form-row"><label>Upload Image</label><input id="presImage" type="file" accept="image/*" /></div>
+        <img id="presPreview" class="hidden" style="max-height:150px;" />
+        <button class="btn">Save Prescription</button>
+      </form>
+      <h3>Your Prescriptions</h3>
+      <div id="presList" class="record-list"></div>
+    </section>
+  </main>
+
+  <div class="modal" id="imageModal">
+    <div class="modal-content zoomIn">
+      <div class="modal-header">
+        <strong>Prescription</strong>
+        <button class="btn btn-danger" onclick="PatientHub.closeModal('imageModal')">Close</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImg" />
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Test Reports • PatientHub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/animation.css" />
+</head>
+<body>
+  <!-- Shared Navbar -->
+  <header class="navbar fadeIn">
+    <div class="brand">
+      <img src="assets/img/logo.png" alt="PatientHub Logo">
+      <div class="title">PatientHub</div>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="records.html">Doctor Visits</a>
+      <a href="prescriptions.html">Prescriptions</a>
+      <a href="test-reports.html">Test Reports</a>
+      <span id="navUser" class="muted hidden"></span>
+      <a id="navLogin" href="login.html">Login</a>
+      <button id="navLogout" class="hidden">Logout</button>
+    </nav>
+  </header>
 
+  <main class="app-layout">
+    <section class="content slideUp">
+      <h2 style="margin-top:0;">Upload a Test Report</h2>
+      <form id="testForm" class="form">
+        <div class="grid-2">
+          <div class="form-row">
+            <label for="testName">Test Name</label>
+            <input id="testName" type="text" class="input" placeholder="e.g., CBC, Lipid Profile" required />
+          </div>
+          <div class="form-row">
+            <label for="testDate">Test Date</label>
+            <input id="testDate" type="date" class="input" required />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-row">
+            <label for="testImage">Upload Report Image</label>
+            <input id="testImage" type="file" accept="image/*" class="input" />
+          </div>
+          <div class="form-row">
+            <label>Preview</label>
+            <img id="testPreview" class="hidden" alt="Preview" style="max-height:160px;border-radius:16px;">
+          </div>
+        </div>
+        <button class="btn" type="submit">Save Report</button>
+      </form>
+
+      <div class="spacer"></div>
+
+      <h3 style="margin:0 0 8px 0;">Your Test Reports</h3>
+      <div id="testGrid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <!-- Image Modal -->
+  <div class="modal" id="imageModal">
+    <div class="modal-content zoomIn">
+      <div class="modal-header">
+        <strong>Test Report</strong>
+        <button class="btn btn-danger" onclick="PatientHub.closeModal('imageModal')">Close</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImg" alt="Test Report" />
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

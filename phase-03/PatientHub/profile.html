@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile • PatientHub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/animation.css" />
+</head>
+<body>
+  <!-- Shared Navbar -->
+  <header class="navbar fadeIn">
+    <div class="brand">
+      <img src="assets/img/logo.png" alt="PatientHub Logo">
+      <div class="title">PatientHub</div>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="records.html">Doctor Visits</a>
+      <a href="prescriptions.html">Prescriptions</a>
+      <a href="test-reports.html">Test Reports</a>
+      <span id="navUser" class="muted hidden"></span>
+      <a id="navLogin" href="login.html">Login</a>
+      <button id="navLogout" class="hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main class="app-layout">
+    <section class="content slideUp">
+      <h2>Edit Profile</h2>
+      <form class="form">
+        <div class="form-row"><label>Name</label><input id="profileName" class="input" /></div>
+        <div class="form-row"><label>Age</label><input id="profileAge" class="input" type="number" /></div>
+        <div class="form-row"><label>Gender</label><input id="profileGender" class="input" /></div>
+        <div class="form-row"><label>Phone</label><input id="profilePhone" class="input" /></div>
+        <div class="form-row"><label>Blood Group</label><input id="profileBloodGroup" class="input" /></div>
+        <div class="form-row"><label>Address</label><textarea id="profileAddress" class="textarea"></textarea></div>
+        <div class="form-row"><label>Emergency Contact</label><input id="profileEmergency" class="input" /></div>
+        <button id="saveProfile" class="btn btn-success">Save Profile</button>
+        <div id="profileSaved" class="muted"></div>
+      </form>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

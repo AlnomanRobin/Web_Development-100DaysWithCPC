@@ -9,13 +9,21 @@
   <link rel="stylesheet" href="assets/css/animation.css" />
 </head>
 <body>
+  <!-- Shared Navbar -->
   <header class="navbar fadeIn">
     <div class="brand">
       <img src="assets/img/logo.png" alt="PatientHub Logo">
       <div class="title">PatientHub</div>
     </div>
     <nav class="nav-links">
-      <a href="login.html">Login</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="records.html">Doctor Visits</a>
+      <a href="prescriptions.html">Prescriptions</a>
+      <a href="test-reports.html">Test Reports</a>
+      <span id="navUser" class="muted hidden"></span>
+      <a id="navLogin" href="login.html">Login</a>
+      <button id="navLogout" class="hidden">Logout</button>
     </nav>
   </header>
 
@@ -56,10 +64,6 @@
         </div>
         <div id="authError" class="muted" style="color:#ffd2d2;"></div>
       </form>
-
-      <div class="auth-footer">
-        <small>Already have an account? <a href="login.html">Login</a></small>
-      </div>
     </section>
   </main>
 
