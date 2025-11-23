@@ -1,0 +1,51 @@
+/* Auth pages (Login/Signup) specific styles */
+
+.auth-wrapper {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  place-items: center;
+  padding: var(--spacing-4);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  padding: var(--spacing-5);
+  border-radius: var(--card-radius);
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(167,139,250,0.25), transparent 50%),
+    radial-gradient(800px 400px at 110% 10%, rgba(110,231,249,0.25), transparent 60%),
+    rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.auth-header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  margin: 0 auto var(--spacing-2);
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-3);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: var(--spacing-3);
+  color: var(--text-muted);
+}
+
+/* Inputs show subtle zoom hover */
+.input:hover, .select:hover, .textarea:hover {
+  transform: scale(1.01);
+}
