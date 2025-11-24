@@ -1,0 +1,37 @@
+/* Animation library for PatientHub */
+
+.fadeIn {
+  animation: fadeIn 500ms ease-out both;
+}
+
+.slideUp {
+  animation: slideUp 600ms ease-out both;
+}
+
+.zoomIn {
+  animation: zoomIn 500ms ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Hover smoothness */
+.hover-smooth {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.hover-smooth:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
