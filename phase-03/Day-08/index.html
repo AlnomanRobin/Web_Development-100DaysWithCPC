@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" data-theme="light">
+    <header class="topbar">
+      <h1 class="visually-hidden">Digital Clock</h1>
+      <button id="settingsToggle"
+              class="icon-button"
+              aria-label="Toggle settings panel"
+              aria-expanded="false"
+              aria-controls="settingsPanel">
+        ⚙️
+      </button>
+    </header>
+
+    <section class="clock" aria-label="Current time">
+      <div class="time">
+        <span class="digit" id="hours" aria-label="Hours">12</span>
+        <span class="sep">:</span>
+        <span class="digit" id="minutes" aria-label="Minutes">00</span>
+        <span class="sep" id="secondsSep">:</span>
+        <span class="digit" id="seconds" aria-label="Seconds">00</span>
+        <span class="ampm" id="ampm" aria-label="AM or PM">AM</span>
+      </div>
+      <div class="date" id="date" aria-label="Current date">Sun, 01 Jan 2025</div>
+    </section>
+
+    <aside id="settingsPanel" class="panel" aria-label="Clock settings" hidden>
+      <h2 class="panel-title">Settings</h2>
+      <form id="settingsForm">
+        <div class="setting">
+          <label for="formatToggle"><strong>12/24-hour:</strong></label>
+          <input type="checkbox"
+                 id="formatToggle"
+                 role="switch"
+                 aria-label="Toggle 24-hour format"
+                 />
+          <span class="hint">On = 24-hour</span>
+        </div>
+
+        <div class="setting">
+          <label for="timezoneSelect"><strong>Time zone:</strong></label>
+          <select id="timezoneSelect" aria-label="Select time zone">
+            <option value="local">Local</option>
+            <option value="UTC">UTC</option>
+            <option value="Asia/Dhaka">Asia/Dhaka</option>
+            <option value="America/New_York">America/New_York</option>
+          </select>
+        </div>
+
+        <div class="setting">
+          <label for="showSeconds"><strong>Show seconds:</strong></label>
+          <input type="checkbox"
+                 id="showSeconds"
+                 role="switch"
+                 aria-label="Toggle show seconds"
+                 checked />
+        </div>
+
+        <div class="setting">
+          <label for="themeToggle"><strong>Theme:</strong></label>
+          <input type="checkbox"
+                 id="themeToggle"
+                 role="switch"
+                 aria-label="Toggle dark theme" />
+          <span class="hint">On = Dark</span>
+        </div>
+
+        <div class="setting">
+          <label for="accentColor"><strong>Accent color:</strong></label>
+          <input type="color" id="accentColor" aria-label="Pick accent color" value="#3aa0ff" />
+        </div>
+
+        <hr class="divider" />
+
+        <h3 class="subsection">Alarm</h3>
+        <div class="setting">
+          <label for="alarmTime"><strong>Alarm time (HH:MM):</strong></label>
+          <input type="time"
+                 id="alarmTime"
+                 aria-label="Set alarm time"
+                 step="60" />
+        </div>
+        <div class="actions">
+          <button type="button" id="setAlarm" class="primary">Set alarm</button>
+          <button type="button" id="clearAlarm">Clear alarm</button>
+        </div>
+
+        <div id="alarmBanner" class="alarm-banner" hidden>
+          <span>Alarm ringing</span>
+          <button type="button" id="dismissAlarm" class="danger">Dismiss</button>
+        </div>
+      </form>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
