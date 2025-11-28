@@ -133,4 +133,106 @@ if (accentInput) {
   // initialize from current input value
   setAccent(accentInput.value);
 }
-// ...existing code...
+
+/* --- Size controls: scale the clock --- */
+const clockEl = document.querySelector('.clock');
+const sizeRange = document.getElementById('sizeRange');
+const decSize = document.getElementById('decSize');
+const incSize = document.getElementById('incSize');
+const sizeValue = document.getElementById('sizeValue');
+
+function applySize(scale){
+  if (!clockEl) return;
+  clockEl.style.transform = `scale(${scale})`;
+  sizeValue.textContent = `${Math.round(scale * 100)}%`;
+  localStorage.setItem('clockScale', scale.toString());
+}
+
+if (sizeRange){
+  // init from saved or input value
+  const saved = parseFloat(localStorage.getItem('clockScale') || sizeRange.value);
+  sizeRange.value = saved;
+  applySize(parseFloat(saved));
+
+  sizeRange.addEventListener('input', (e) => {
+    applySize(parseFloat(e.target.value));
+  });
+  decSize.addEventListener('click', () => {
+    let v = Math.max(parseFloat(sizeRange.min), parseFloat(sizeRange.value) - parseFloat(sizeRange.step));
+    sizeRange.value = v;
+    applySize(v);
+  });
+  incSize.addEventListener('click', () => {
+    let v = Math.min(parseFloat(sizeRange.max), parseFloat(sizeRange.value) + parseFloat(sizeRange.step));
+    sizeRange.value = v;
+    applySize(v);
+  });
+}
+
+/* --- Stopwatch implementation --- */
+const swDisplay = document.getElementById('swDisplay');
+const swStart = document.getElementById('swStart');
+const swStop = document.getElementById('swStop');
+const swReset = document.getElementById('swReset');
+const swLap = document.getElementById('swLap');
+const swLaps = document.getElementById('swLaps');
+
+let swInterval = null;
+let swStartTime = 0;
+let swElapsed = 0; // ms
+
+function formatStopwatch(ms){
+  const totalHund = Math.floor(ms / 10);
+  const hund = totalHund % 100;
+  const totalSec = Math.floor(totalHund / 100);
+  const sec = totalSec % 60;
+  const min = Math.floor(totalSec / 60);
+  return `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}.${String(hund).padStart(2,'0')}`;
+}
+
+function updateSW(){
+  swElapsed = Date.now() - swStartTime;
+  swDisplay.textContent = formatStopwatch(swElapsed);
+}
+
+if (swStart){
+  swStart.addEventListener('click', () => {
+    if (!swInterval){
+      swStartTime = Date.now() - swElapsed;
+      swInterval = setInterval(updateSW, 30);
+      swStart.disabled = true;
+      swStop.disabled = false;
+      swReset.disabled = false;
+    }
+  });
+}
+if (swStop){
+  swStop.addEventListener('click', () => {
+    if (swInterval){
+      clearInterval(swInterval);
+      swInterval = null;
+      // keep swElapsed as-is
+      swStart.disabled = false;
+      swStop.disabled = true;
+    }
+  });
+}
+if (swReset){
+  swReset.addEventListener('click', () => {
+    clearInterval(swInterval);
+    swInterval = null;
+    swElapsed = 0;
+    swDisplay.textContent = '00:00.00';
+    swLaps.innerHTML = '';
+    swStart.disabled = false;
+    swStop.disabled = true;
+    swReset.disabled = true;
+  });
+}
+if (swLap){
+  swLap.addEventListener('click', () => {
+    const li = document.createElement('li');
+    li.textContent = formatStopwatch(swElapsed);
+    swLaps.insertBefore(li, swLaps.firstChild);
+  });
+}

@@ -77,6 +77,16 @@
           <input type="color" id="accentColor" aria-label="Pick accent color" value="#3aa0ff" />
         </div>
 
+        <div class="setting">
+          <label for="sizeRange"><strong>Clock size:</strong></label>
+          <div class="size-controls">
+            <button type="button" id="decSize" aria-label="Decrease clock size">−</button>
+            <input type="range" id="sizeRange" min="0.6" max="1.6" step="0.05" value="1" aria-label="Adjust clock size" />
+            <button type="button" id="incSize" aria-label="Increase clock size">+</button>
+            <span id="sizeValue" class="hint">100%</span>
+          </div>
+        </div>
+
         <hr class="divider" />
 
         <h3 class="subsection">Alarm</h3>
@@ -95,6 +105,20 @@
         <div id="alarmBanner" class="alarm-banner" hidden>
           <span>Alarm ringing</span>
           <button type="button" id="dismissAlarm" class="danger">Dismiss</button>
+        </div>
+
+        <!-- Stopwatch: new -->
+        <hr class="divider" />
+        <h3 class="subsection">Stopwatch</h3>
+        <div class="setting stopwatch-section">
+          <div id="swDisplay" class="sw-display">00:00.00</div>
+          <div class="sw-controls">
+            <button type="button" id="swStart" class="primary">Start</button>
+            <button type="button" id="swStop" disabled>Stop</button>
+            <button type="button" id="swReset" disabled>Reset</button>
+            <button type="button" id="swLap">Lap</button>
+          </div>
+          <ul id="swLaps" class="sw-laps" aria-live="polite"></ul>
         </div>
       </form>
     </aside>
