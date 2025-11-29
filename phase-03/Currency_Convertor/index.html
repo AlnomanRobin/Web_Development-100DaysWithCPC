@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+  />
+  <meta name="color-scheme" content="light dark" />
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Preconnect hints for performance -->
+  <link rel="preconnect" href="https://flagcdn.com" crossorigin>
+  <link rel="dns-prefetch" href="https://flagcdn.com">
+
+  <!-- Favicon / simple SVG logo -->
+  <link rel="icon" href="data:image/svg+xml;utf8,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+    <rect width='64' height='64' rx='12' fill='%230B6EF6'/>
+    <path d='M16 34h32' stroke='white' stroke-width='4' stroke-linecap='round'/>
+    <circle cx='24' cy='24' r='4' fill='white'/>
+    <circle cx='40' cy='44' r='4' fill='white'/>
+  </svg>" />
+
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <!-- Optional inline SVG logo for clarity -->
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="12" fill="#0B6EF6"/>
+        <path d="M16 34h32" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="4" fill="white"/>
+        <circle cx="40" cy="44" r="4" fill="white"/>
+      </svg>
+      <h1 class="title">Currency Converter</h1>
+    </div>
+
+    <button
+      id="themeToggle"
+      class="btn btn-icon"
+      aria-label="Toggle color theme"
+      title="Toggle theme"
+    >
+      <span class="icon" aria-hidden="true">🌓</span>
+    </button>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="converter-card" aria-labelledby="converter-title">
+      <h2 id="converter-title" class="sr-only">Currency converter</h2>
+
+      <!-- Amount input -->
+      <div class="field-group">
+        <label for="amount" class="field-label">Amount</label>
+        <input
+          id="amount"
+          name="amount"
+          class="input"
+          type="number"
+          inputmode="decimal"
+          step="any"
+          min="0"
+          placeholder="Enter amount"
+          aria-describedby="amount-help"
+        />
+        <div id="amount-help" class="help-text">Type an amount to convert</div>
+      </div>
+
+      <!-- From currency dropdown -->
+      <div class="field-group">
+        <label for="fromCurrency" class="field-label">From</label>
+        <div class="dropdown" data-dropdown="from">
+          <button
+            id="fromCurrencyBtn"
+            class="dropdown-toggle"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="fromCurrencyList"
+            aria-label="Select source currency"
+          >
+            <img id="fromFlag" class="flag" alt="United States" src="https://flagcdn.com/24x18/us.png" width="24" height="18" />
+            <span id="fromCode" class="code">USD</span>
+            <span id="fromName" class="name">United States Dollar</span>
+          </button>
+          <div class="dropdown-menu" role="listbox" id="fromCurrencyList" tabindex="-1" aria-label="Source currency list">
+            <div class="dropdown-search">
+              <input
+                id="fromSearch"
+                class="dropdown-input"
+                type="text"
+                placeholder="Search by code, country, name"
+                aria-label="Search source currency"
+              />
+            </div>
+            <ul class="dropdown-options" id="fromOptions"></ul>
+            <div class="dropdown-favorites">
+              <div class="favorites-title">Favorites</div>
+              <ul id="fromFavorites" class="favorites-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swap button -->
+      <div class="swap-row">
+        <button
+          id="swapBtn"
+          class="btn swap-btn"
+          aria-label="Swap currencies"
+          title="Swap"
+        >
+          <span class="swap-icon" aria-hidden="true">⇄</span>
+        </button>
+      </div>
+
+      <!-- To currency dropdown -->
+      <div class="field-group">
+        <label for="toCurrency" class="field-label">To</label>
+        <div class="dropdown" data-dropdown="to">
+          <button
+            id="toCurrencyBtn"
+            class="dropdown-toggle"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="toCurrencyList"
+            aria-label="Select target currency"
+          >
+            <img id="toFlag" class="flag" alt="Eurozone" src="https://flagcdn.com/24x18/eu.png" width="24" height="18" />
+            <span id="toCode" class="code">EUR</span>
+            <span id="toName" class="name">Euro</span>
+          </button>
+          <div class="dropdown-menu" role="listbox" id="toCurrencyList" tabindex="-1" aria-label="Target currency list">
+            <div class="dropdown-search">
+              <input
+                id="toSearch"
+                class="dropdown-input"
+                type="text"
+                placeholder="Search by code, country, name"
+                aria-label="Search target currency"
+              />
+            </div>
+            <ul class="dropdown-options" id="toOptions"></ul>
+            <div class="dropdown-favorites">
+              <div class="favorites-title">Favorites</div>
+              <ul id="toFavorites" class="favorites-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Convert row -->
+      <div class="actions-row">
+        <button id="convertBtn" class="btn btn-primary" aria-label="Convert amount">
+          Convert
+        </button>
+        <button id="pinFromBtn" class="btn btn-outline" aria-label="Pin from currency">Pin From</button>
+        <button id="pinToBtn" class="btn btn-outline" aria-label="Pin to currency">Pin To</button>
+      </div>
+
+      <!-- Results -->
+      <div id="result" class="result" aria-live="polite" aria-atomic="true">
+        <div class="skeleton" id="skeleton" hidden>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+        </div>
+
+        <div id="resultContent" class="result-content">
+          <div class="result-amount">
+            <span class="result-label">Converted:</span>
+            <span id="convertedAmount" class="result-value">—</span>
+          </div>
+          <div class="result-meta">
+            <span id="rateInfo" class="muted">Rate: —</span>
+            <span id="timestamp" class="muted">Updated: —</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status messages -->
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div id="error" class="error" role="alert" aria-live="assertive" hidden></div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="footer-content">
+      <span class="muted">Data source: <a href="#" id="apiLink" rel="noopener">Exchange Rates API (replaceable)</a></span>
+      <span class="muted">Flags via <a href="https://flagcdn.com" rel="noopener">FlagCDN</a></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
