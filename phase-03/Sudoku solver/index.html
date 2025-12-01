@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sudoku Solver — Manual & Preset</title>
+  <meta name="description" content="Responsive Sudoku solver with manual input and preset puzzles. Accessible, offline, and fast." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Sudoku Solver</h1>
+    <p class="subhead">Manual input and preset puzzles. Fast solver. Accessible UI.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls" aria-label="Controls">
+      <div class="mode-row">
+        <label class="mode-toggle">
+          <input type="radio" name="mode" value="manual" checked />
+          <span>Manual</span>
+        </label>
+        <label class="mode-toggle">
+          <input type="radio" name="mode" value="preset" />
+          <span>Preset</span>
+        </label>
+      </div>
+
+      <div class="preset-controls" aria-label="Preset controls">
+        <label class="difficulty-label" for="difficulty">Difficulty:</label>
+        <select id="difficulty" aria-label="Difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="newPuzzleBtn" class="btn" aria-label="New puzzle">New puzzle</button>
+        <button id="randomizeBtn" class="btn" aria-label="Randomize puzzle">Randomize</button>
+      </div>
+
+      <div class="solver-controls" aria-label="Solver actions">
+        <button id="validateBtn" class="btn primary" aria-label="Validate current board">Validate</button>
+        <button id="solveBtn" class="btn success" aria-label="Solve current puzzle">Solve</button>
+        <button id="hintBtn" class="btn" aria-label="Hint: fill one correct cell">Hint</button>
+        <button id="undoBtn" class="btn" aria-label="Undo last change">Undo</button>
+        <button id="clearBtn" class="btn danger" aria-label="Clear all user entries">Clear</button>
+        <label class="anim-toggle">
+          <input type="checkbox" id="animateSolve" />
+          <span>Animated solve</span>
+        </label>
+      </div>
+
+      <div class="digits-filter" aria-label="Allowed digits">
+        <span class="filter-title">Allowed digits:</span>
+        <div class="digits-list" role="group" aria-label="Allowed digits checkboxes">
+          <!-- 1–9 checkboxes -->
+          <label><input type="checkbox" class="digit-allow" value="1" checked /> 1</label>
+          <label><input type="checkbox" class="digit-allow" value="2" checked /> 2</label>
+          <label><input type="checkbox" class="digit-allow" value="3" checked /> 3</label>
+          <label><input type="checkbox" class="digit-allow" value="4" checked /> 4</label>
+          <label><input type="checkbox" class="digit-allow" value="5" checked /> 5</label>
+          <label><input type="checkbox" class="digit-allow" value="6" checked /> 6</label>
+          <label><input type="checkbox" class="digit-allow" value="7" checked /> 7</label>
+          <label><input type="checkbox" class="digit-allow" value="8" checked /> 8</label>
+          <label><input type="checkbox" class="digit-allow" value="9" checked /> 9</label>
+        </div>
+        <button id="resetDigitsBtn" class="btn" aria-label="Reset allowed digits">Reset</button>
+      </div>
+
+      <div class="persist-controls" aria-label="Save and load">
+        <button id="saveBtn" class="btn" aria-label="Save puzzle to device">Save</button>
+        <button id="loadBtn" class="btn" aria-label="Load saved puzzle">Load</button>
+      </div>
+    </section>
+
+    <section class="grid-wrapper" aria-label="Sudoku grid">
+      <div id="grid" class="grid" role="grid" aria-label="9 by 9 Sudoku grid">
+        <!-- Cells injected by app.js -->
+      </div>
+    </section>
+
+    <section class="status" aria-live="polite" aria-atomic="true">
+      <p id="statusText">Ready.</p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Keyboard: Arrows to move, 1–9 to enter, Backspace to erase, Enter to Solve.</p>
+  </footer>
+
+  <script type="module">
+    import { initApp } from './app.js';
+    import { PUZZLES } from './puzzles.js';
+    initApp(PUZZLES);
+  </script>
+</body>
+</html>
