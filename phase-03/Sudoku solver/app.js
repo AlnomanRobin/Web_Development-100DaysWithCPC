@@ -156,38 +156,67 @@ function renderBoard(state) {
 
 // ---------- Controls wiring ----------
 function wireControls(state) {
+  const safeGet = (id) => document.getElementById(id);
+
   const modeRadios = document.querySelectorAll('input[name="mode"]');
   modeRadios.forEach(r => r.addEventListener('change', () => {
     state.mode = r.value;
     handleModeChange(state);
   }));
-  document.getElementById('difficulty').addEventListener('change', (e) => {
-    state.difficulty = e.target.value;
-  });
-  document.getElementById('newPuzzleBtn').addEventListener('click', () => newPuzzle(state, false));
-  document.getElementById('randomizeBtn').addEventListener('click', () => newPuzzle(state, true));
-  document.getElementById('validateBtn').addEventListener('click', () => validateClicked(state));
-  document.getElementById('solveBtn').addEventListener('click', () => solveClicked(state));
-  document.getElementById('hintBtn').addEventListener('click', () => hintClicked(state));
-  document.getElementById('undoBtn').addEventListener('click', () => undoClicked(state));
-  document.getElementById('clearBtn').addEventListener('click', () => clearClicked(state));
-  document.getElementById('animateSolve').addEventListener('change', (e) => { state.anim = e.target.checked; });
-  document.getElementById('saveBtn').addEventListener('click', () => saveClicked(state));
-  document.getElementById('loadBtn').addEventListener('click', () => loadClicked(state));
 
-  document.querySelectorAll('.digit-allow').forEach(chk => {
-    chk.addEventListener('change', () => {
-      const v = Number(chk.value);
-      if (chk.checked) state.allowedDigits.add(v);
-      else state.allowedDigits.delete(v);
-      announce(state, `Allowed digits: ${[...state.allowedDigits].sort().join(', ') || 'None'}`);
+  const diffEl = safeGet('difficulty');
+  if (diffEl) diffEl.addEventListener('change', (e) => { state.difficulty = e.target.value; });
+
+  const newBtn = safeGet('newPuzzleBtn');
+  if (newBtn) newBtn.addEventListener('click', () => newPuzzle(state, false));
+
+  const randBtn = safeGet('randomizeBtn');
+  if (randBtn) randBtn.addEventListener('click', () => newPuzzle(state, true));
+
+  const validateBtn = safeGet('validateBtn');
+  if (validateBtn) validateBtn.addEventListener('click', () => validateClicked(state));
+
+  const solveBtn = safeGet('solveBtn');
+  if (solveBtn) solveBtn.addEventListener('click', () => solveClicked(state));
+
+  const hintBtn = safeGet('hintBtn');
+  if (hintBtn) hintBtn.addEventListener('click', () => hintClicked(state));
+
+  const undoBtn = safeGet('undoBtn');
+  if (undoBtn) undoBtn.addEventListener('click', () => undoClicked(state));
+
+  const clearBtn = safeGet('clearBtn');
+  if (clearBtn) clearBtn.addEventListener('click', () => clearClicked(state));
+
+  const animEl = safeGet('animateSolve');
+  if (animEl) animEl.addEventListener('change', (e) => { state.anim = e.target.checked; });
+
+  const saveBtn = safeGet('saveBtn');
+  if (saveBtn) saveBtn.addEventListener('click', () => saveClicked(state));
+
+  const loadBtn = safeGet('loadBtn');
+  if (loadBtn) loadBtn.addEventListener('click', () => loadClicked(state));
+
+  const digitAllowEls = document.querySelectorAll('.digit-allow');
+  if (digitAllowEls && digitAllowEls.length) {
+    digitAllowEls.forEach(chk => {
+      chk.addEventListener('change', () => {
+        const v = Number(chk.value);
+        if (chk.checked) state.allowedDigits.add(v);
+        else state.allowedDigits.delete(v);
+        announce(state, `Allowed digits: ${[...state.allowedDigits].sort().join(', ') || 'None'}`);
+      });
     });
-  });
-  document.getElementById('resetDigitsBtn').addEventListener('click', () => {
-    state.allowedDigits = new Set([1,2,3,4,5,6,7,8,9]);
-    document.querySelectorAll('.digit-allow').forEach(chk => chk.checked = true);
-    announce(state, 'Allowed digits reset to 1–9.');
-  });
+  }
+
+  const resetDigitsBtn = safeGet('resetDigitsBtn');
+  if (resetDigitsBtn) {
+    resetDigitsBtn.addEventListener('click', () => {
+      state.allowedDigits = new Set([1,2,3,4,5,6,7,8,9]);
+      document.querySelectorAll('.digit-allow').forEach(chk => chk.checked = true);
+      announce(state, 'Allowed digits reset to 1–9.');
+    });
+  }
 
   handleModeChange(state);
 }
@@ -195,10 +224,10 @@ function wireControls(state) {
 function handleModeChange(state) {
   const presetControls = document.querySelector('.preset-controls');
   if (state.mode === 'preset') {
-    presetControls.style.display = 'block';
+    if (presetControls) presetControls.style.display = 'block';
     newPuzzle(state, true);
   } else {
-    presetControls.style.display = 'block'; // visible for digits filter & save/load
+    if (presetControls) presetControls.style.display = 'none';
     clearGivenMask(state);
     renderBoard(state);
     announce(state, 'Manual mode. Enter digits or paste a puzzle via URL.');
@@ -616,4 +645,26 @@ function exposeAPI(state) {
     const res = solveSudoku(boardCopy, { multi: true });
     return { status: res.status, solutionsFound: res.solutionsFound };
   };
+}
+
+function restoreIfAny(state) {
+  // Safe auto-restore: try to restore a previously saved puzzle if present.
+  const data = localStorage.getItem('sudoku_saved');
+  if (!data) return;
+  try {
+    const payload = JSON.parse(data);
+    if (payload && Array.isArray(payload.board) && payload.board.length === 9) {
+      state.board = payload.board;
+      state.givenMask = payload.givenMask || blankMask();
+      state.mode = payload.mode || state.mode;
+      state.difficulty = payload.difficulty || state.difficulty;
+      document.querySelectorAll('input[name="mode"]').forEach(r => r.checked = (r.value === state.mode));
+      const diffEl = document.getElementById('difficulty');
+      if (diffEl) diffEl.value = state.difficulty;
+      renderBoard(state);
+      announce(state, 'Restored saved puzzle.');
+    }
+  } catch (e) {
+    // ignore bad data
+  }
 }
