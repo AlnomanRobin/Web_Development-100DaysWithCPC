@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Hostel Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="topbar" role="banner" aria-label="Top navigation">
+    <div class="topbar-left">
+      <button class="icon-btn" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <h1 class="app-title">Modern Hostel</h1>
+    </div>
+    <div class="topbar-right">
+      <label class="month-switcher" for="monthSelect">
+        <span class="sr-only">Select month</span>
+        <select id="monthSelect" aria-label="Current month selector"></select>
+      </label>
+      <button class="icon-btn" id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode">🌗</button>
+      <div class="user-avatar" id="userAvatar" aria-label="User avatar" tabindex="0"></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Primary">
+      <ul class="nav-list">
+        <li><button class="nav-link active" data-tab="dashboard" aria-current="page">Dashboard</button></li>
+        <li><button class="nav-link" data-tab="meals">Meals</button></li>
+        <li><button class="nav-link" data-tab="bazar">Bazar</button></li>
+        <li><button class="nav-link" data-tab="basavara">Basa Vara</button></li>
+        <li><button class="nav-link" data-tab="profiles">Profiles</button></li>
+        <li><button class="nav-link" data-tab="contacts">Contacts</button></li>
+        <li><button class="nav-link" data-tab="reports">Reports</button></li>
+        <li><button class="nav-link" data-tab="settings">Settings</button></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="content" tabindex="-1">
+      <!-- Cards -->
+      <section id="dashboard" class="tab active" aria-labelledby="dashboardTitle">
+        <h2 id="dashboardTitle" class="h-title">Dashboard</h2>
+        <div class="cards">
+          <div class="card" aria-live="polite"><h3>Total Meals</h3><p id="cardTotalMeals">0</p></div>
+          <div class="card"><h3>Bazar Cost</h3><p id="cardBazarCost">৳0</p></div>
+          <div class="card"><h3>Per-Meal Cost</h3><p id="cardPerMeal">৳0</p></div>
+          <div class="card"><h3>Outstanding</h3><p id="cardOutstanding">৳0</p></div>
+        </div>
+      </section>
+
+      <!-- Meals -->
+      <section id="meals" class="tab" aria-labelledby="mealsTitle">
+        <h2 id="mealsTitle" class="h-title">30-day Meal Tracker</h2>
+        <div class="toolbar">
+          <label for="residentSelect" class="label">Resident</label>
+          <select id="residentSelect" aria-label="Select resident"></select>
+          <button id="addResidentBtn" class="btn">Add Name</button>
+          <input type="number" id="defaultMealInput" class="input" min="0" placeholder="মিল সংখ্যা (e.g., 0,1,2)" aria-label="Default meal value">
+          <button id="applyDefaultMealsBtn" class="btn">Set Default</button>
+          <button id="bulkEditBtn" class="btn">Bulk Edit</button>
+        </div>
+        <div class="meal-grid" role="grid" aria-label="30-day meal grid" id="mealGrid"></div>
+      </section>
+
+      <!-- Bazar -->
+      <section id="bazar" class="tab" aria-labelledby="bazarTitle">
+        <h2 id="bazarTitle" class="h-title">Bazar (Marketplace) Ledger</h2>
+        <div class="toolbar">
+          <button id="addBazarBtn" class="btn">বাজারের আইটেম যোগ করুন</button>
+          <span class="total">Total: <strong id="bazarTotal">৳0</strong></span>
+        </div>
+        <table class="table" role="table" aria-label="Bazar table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Item</th>
+              <th>Bought-by</th>
+              <th>Amount</th>
+              <th>Shared</th>
+              <th>Receipt</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bazarTableBody"></tbody>
+        </table>
+      </section>
+
+      <!-- Basa Vara -->
+      <section id="basavara" class="tab" aria-labelledby="basavaraTitle">
+        <h2 id="basavaraTitle" class="h-title">Basa Vara (Rent/Dues)</h2>
+        <div class="toolbar">
+          <button id="addPaymentBtn" class="btn">Add Payment</button>
+        </div>
+        <div id="rentStatusList" class="list"></div>
+        <div class="summary">
+          <p><strong>Total Due:</strong> <span id="totalDue">৳0</span></p>
+          <p><strong>Collected:</strong> <span id="totalCollected">৳0</span></p>
+        </div>
+      </section>
+
+      <!-- Profiles -->
+      <section id="profiles" class="tab" aria-labelledby="profilesTitle">
+        <h2 id="profilesTitle" class="h-title">Profiles</h2>
+        <div id="profilesList" class="profiles"></div>
+      </section>
+
+      <!-- Contacts -->
+      <section id="contacts" class="tab" aria-labelledby="contactsTitle">
+        <h2 id="contactsTitle" class="h-title">Contact / Emergency</h2>
+        <div id="contactList" class="contacts"></div>
+      </section>
+
+      <!-- Reports -->
+      <section id="reports" class="tab" aria-labelledby="reportsTitle">
+        <h2 id="reportsTitle" class="h-title">Reports & Export</h2>
+        <div class="toolbar">
+          <button id="exportCsvBtn" class="btn">Export CSV</button>
+          <button id="exportJsonBtn" class="btn">Export JSON</button>
+          <button id="printViewBtn" class="btn">Print-friendly</button>
+          <input type="file" id="importJsonInput" accept="application/json" aria-label="Import JSON">
+          <button id="resetDataBtn" class="btn danger">Reset Data</button>
+        </div>
+        <div id="reportSummary" class="report"></div>
+      </section>
+
+      <!-- Settings -->
+      <section id="settings" class="tab" aria-labelledby="settingsTitle">
+        <h2 id="settingsTitle" class="h-title">Settings</h2>
+        <div class="settings">
+          <label class="label">Currency
+            <input type="text" id="currencyInput" class="input" value="৳" aria-label="Currency">
+          </label>
+          <label class="label">Per-Meal Cost (optional override)
+            <input type="number" id="perMealCostInput" class="input" min="0" step="0.01" aria-label="Per meal cost override">
+          </label>
+          <button id="saveSettingsBtn" class="btn">Save Settings</button>
+        </div>
+        <div class="tutorial">
+          <button id="showTutorialBtn" class="btn">Show Tutorial Overlay</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <dialog id="residentModal" aria-label="Add resident">
+    <form method="dialog">
+      <h3>নতুন বাসিন্দার নাম যোগ করুন</h3>
+      <label class="label">Name <input type="text" id="residentNameInput" class="input" required></label>
+      <label class="label">Phone <input type="tel" id="residentPhoneInput" class="input"></label>
+      <label class="label">Email <input type="email" id="residentEmailInput" class="input"></label>
+      <label class="label">Facebook <input type="url" id="residentFacebookInput" class="input"></label>
+      <menu class="modal-actions">
+        <button value="cancel">Cancel</button>
+        <button id="saveResidentBtn" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="bazarModal" aria-label="Add bazar">
+    <form method="dialog">
+      <h3>বাজারের আইটেম যোগ করুন</h3>
+      <label class="label">Date <input type="date" id="bazarDateInput" class="input" required></label>
+      <label class="label">Item <input type="text" id="bazarItemInput" class="input" required></label>
+      <label class="label">Buyer
+        <select id="bazarBuyerInput" class="input" required></select>
+      </label>
+      <label class="label">Amount <input type="number" id="bazarAmountInput" class="input" min="0" step="0.01" required></label>
+      <label class="label checkbox"><input type="checkbox" id="bazarSharedInput"> Shared</label>
+      <label class="label">Receipt <input type="file" id="bazarReceiptInput" accept="image/*"></label>
+      <menu class="modal-actions">
+        <button value="cancel">Cancel</button>
+        <button id="saveBazarBtn" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="paymentModal" aria-label="Add payment">
+    <form method="dialog">
+      <h3>Add Payment</h3>
+      <label class="label">Resident
+        <select id="paymentResidentInput" class="input" required></select>
+      </label>
+      <label class="label">Date <input type="date" id="paymentDateInput" class="input" required></label>
+      <label class="label">Amount <input type="number" id="paymentAmountInput" class="input" min="0" step="0.01" required></label>
+      <label class="label">Type
+        <select id="paymentTypeInput" class="input">
+          <option value="rent">rent</option>
+          <option value="other">other</option>
+        </select>
+      </label>
+      <label class="label">Note <input type="text" id="paymentNoteInput" class="input"></label>
+      <menu class="modal-actions">
+        <button value="cancel">Cancel</button>
+        <button id="savePaymentBtn" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="bulkEditModal" aria-label="Bulk edit meals">
+    <form method="dialog">
+      <h3>Bulk Edit Meals</h3>
+      <label class="label">Start day (1-30) <input type="number" id="bulkStartDay" class="input" min="1" max="30" required></label>
+      <label class="label">End day (1-30) <input type="number" id="bulkEndDay" class="input" min="1" max="30" required></label>
+      <label class="label">Meal value <input type="number" id="bulkMealValue" class="input" min="0" required></label>
+      <menu class="modal-actions">
+        <button value="cancel">Cancel</button>
+        <button id="applyBulkEditBtn" value="default">Apply</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <!-- Toasts -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Tutorial overlay -->
+  <div id="tutorialOverlay" class="overlay" hidden>
+    <div class="overlay-content" role="dialog" aria-label="Tutorial">
+      <h3>Welcome</h3>
+      <p>Use the sidebar to navigate. Add residents, set meals, track bazar, and export reports.</p>
+      <button id="closeTutorialBtn" class="btn">Got it</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

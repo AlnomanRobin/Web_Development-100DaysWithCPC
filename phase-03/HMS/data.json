@@ -1,0 +1,65 @@
+{
+  "residents": [
+    {
+      "id": "r1",
+      "name": "Rahim",
+      "phone": "+8801780000000",
+      "email": "rahim@example.com",
+      "facebook": "https://facebook.com/rahim",
+      "avatar": null,
+      "meals": {
+        "2025-12-01": 2,
+        "2025-12-02": 1,
+        "2025-12-03": 2
+      },
+      "bazar_entries": ["b1"],
+      "payments": ["p1"]
+    },
+    {
+      "id": "r2",
+      "name": "Karim",
+      "phone": "+8801790000000",
+      "email": "karim@example.com",
+      "facebook": "https://facebook.com/karim",
+      "avatar": null,
+      "meals": {
+        "2025-12-01": 1,
+        "2025-12-02": 2
+      },
+      "bazar_entries": ["b2"],
+      "payments": []
+    },
+    {
+      "id": "r3",
+      "name": "Farhana",
+      "phone": "+8801710000000",
+      "email": "farhana@example.com",
+      "facebook": "https://facebook.com/farhana",
+      "avatar": null,
+      "meals": {
+        "2025-12-01": 2
+      },
+      "bazar_entries": [],
+      "payments": []
+    }
+  ],
+  "bazar": [
+    {"id":"b1","date":"2025-12-02","item":"Rice","buyer":"r1","amount":1200,"shared":true,"receipt":null},
+    {"id":"b2","date":"2025-12-03","item":"Vegetables","buyer":"r2","amount":600,"shared":false,"receipt":null}
+  ],
+  "payments": [
+    {"id":"p1","residentId":"r1","date":"2025-12-03","amount":5000,"type":"rent","note":"December rent"}
+  ],
+  "settings": {
+    "perMealCost": null,
+    "currency": "৳",
+    "rentPerResident": 3000
+  },
+  "contacts": [
+    {"role":"Manager","name":"Mr X","phone":"+8801700000000","location":"Hostel Road, Dhaka"},
+    {"role":"Owner","name":"Mrs Y","phone":"+8801800000000","location":"Banani, Dhaka"},
+    {"role":"Caretaker","name":"Kajer Buwa","phone":"+8801900000000","location":"Nearby Market"},
+    {"role":"Guard","name":"Darowan","phone":"+8801600000000","location":"Gate 1"},
+    {"role":"Plumber","name":"FixIt","phone":"+8801500000000","location":"Mirpur, Dhaka"}
+  ]
+}
