@@ -1,0 +1,31 @@
+{
+  "name": "al-noman-robin-portfolio",
+  "version": "1.0.0",
+  "description": "A single-page portfolio for AL Noman Robin with a cyberpunk and futuristic aesthetic.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "tailwindcss",
+    "cyberpunk",
+    "futuristic"
+  ],
+  "author": "AL Noman Robin",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "devDependencies": {
+    "vite": "^3.0.0",
+    "postcss": "^8.0.0",
+    "autoprefixer": "^10.0.0"
+  }
+}

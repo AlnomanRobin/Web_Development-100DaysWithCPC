@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-900 text-white font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
+}
+
+a {
+  @apply text-cyan-400 hover:text-cyan-300 transition duration-300;
+}
+
+button {
+  @apply bg-cyan-500 text-white font-semibold py-2 px-4 rounded shadow-lg hover:bg-cyan-400 transition duration-300;
+}
+
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.glass-card {
+  @apply bg-opacity-30 backdrop-filter backdrop-blur-lg border border-gray-700 rounded-lg p-6 shadow-lg;
+}
+
+.footer {
+  @apply bg-gray-800 text-center py-4;
+}
+
+@media (max-width: 640px) {
+  .header {
+    @apply flex flex-col items-center;
+  }
+}
