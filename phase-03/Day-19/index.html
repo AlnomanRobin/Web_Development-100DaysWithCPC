@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL Noman Robin - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header sticky">
+        <div class="header-container">
+            <div class="logo">AL Noman Robin</div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav class="nav" id="navMenu">
+                <a href="#intro">Intro</a>
+                <a href="#academic">Academic</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#hobbies">Hobby Zone</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Intro Section -->
+    <section id="intro" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">AL Noman Robin</h1>
+            <p class="hero-tagline">Cyberpunk | Robotics Enthusiast | Frontend Developer</p>
+            <p class="hero-subtitle">Building futuristic experiences with code and creativity</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">View Projects</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+            </div>
+            <div class="hero-avatar">
+                <svg viewBox="0 0 100 100" class="avatar-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="50" cy="35" r="12" fill="currentColor"/>
+                    <path d="M 35 50 Q 50 65 65 50" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <circle cx="40" cy="45" r="3" fill="currentColor"/>
+                    <circle cx="60" cy="45" r="3" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Results -->
+    <section id="academic" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Academic Results</h2>
+            <div class="cards-grid">
+                <div class="card glass-card">
+                    <h3>Bachelor of Science</h3>
+                    <p class="card-meta">XYZ University</p>
+                    <p class="card-meta">Graduation: 2023</p>
+                    <p class="card-highlight">GPA: 3.03/4.0</p>
+                </div>
+                <div class="card glass-card">
+                    <h3>Advanced JavaScript</h3>
+                    <p class="card-meta">Online Course</p>
+                    <p class="card-meta">Completed: 2024</p>
+                    <p class="card-highlight">Certificate Earned</p>
+                </div>
+                <div class="card glass-card">
+                    <h3>Robotics & AI</h3>
+                    <p class="card-meta">Specialized Training</p>
+                    <p class="card-meta">Completed: 2024</p>
+                    <p class="card-highlight">Advanced Level</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">🏆</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Robotics Hackathon Winner</h3>
+                        <p class="timeline-date">2024</p>
+                        <p>Won first place in national robotics hackathon with autonomous navigation project</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">⭐</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Top 10 UI Design Challenge</h3>
+                        <p class="timeline-date">2023</p>
+                        <p>Selected among top 10 designers in international UI/UX design challenge</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">🎯</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Published Research Paper</h3>
+                        <p class="timeline-date">2023</p>
+                        <p>Published research on AI-driven robotics in peer-reviewed journal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>Frontend</h3>
+                    <div class="skill-chips">
+                        <span class="chip">React</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">TailwindCSS</span>
+                        <span class="chip">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Backend</h3>
+                    <div class="skill-chips">
+                        <span class="chip">Node.js</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">MongoDB</span>
+                        <span class="chip">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-chips">
+                        <span class="chip">Git/GitHub</span>
+                        <span class="chip">VS Code</span>
+                        <span class="chip">Figma</span>
+                        <span class="chip">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Robotics & AI</h3>
+                    <div class="skill-chips">
+                        <span class="chip">ROS</span>
+                        <span class="chip">TensorFlow</span>
+                        <span class="chip">OpenCV</span>
+                        <span class="chip">Arduino</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="placeholder-img">Autonomous Robot</div>
+                    </div>
+                    <h3>Autonomous Navigation Robot</h3>
+                    <p>AI-powered robot with computer vision for autonomous navigation and obstacle avoidance</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">ROS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link">View Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="placeholder-img">Portfolio Site</div>
+                    </div>
+                    <h3>Interactive Portfolio</h3>
+                    <p>Modern single-page portfolio with glassmorphism design and smooth animations</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TailwindCSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Site</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="placeholder-img">ML Model</div>
+                    </div>
+                    <h3>AI Image Classification</h3>
+                    <p>Deep learning model for real-time image classification with 95% accuracy</p>
+                    <div class="project-tags">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">FastAPI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link">Documentation</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificates-gallery">
+                <div class="cert-item" onclick="openCertModal(this)">
+                    <div class="cert-image">📜</div>
+                    <p>React Certification</p>
+                    <span class="cert-issuer">Udemy</span>
+                </div>
+                <div class="cert-item" onclick="openCertModal(this)">
+                    <div class="cert-image">📜</div>
+                    <p>Python for AI</p>
+                    <span class="cert-issuer">Coursera</span>
+                </div>
+                <div class="cert-item" onclick="openCertModal(this)">
+                    <div class="cert-image">📜</div>
+                    <p>Web Design</p>
+                    <span class="cert-issuer">LinkedIn Learning</span>
+                </div>
+                <div class="cert-item" onclick="openCertModal(this)">
+                    <div class="cert-image">📜</div>
+                    <p>Robotics Basics</p>
+                    <span class="cert-issuer">edX</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certModal" class="modal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="closeCertModal()">✕</button>
+            <div class="modal-body">
+                <div class="modal-image">📜 Certificate Image Placeholder</div>
+                <h3 id="certTitle">Certificate Title</h3>
+                <p id="certIssuer"><strong>Issuer:</strong> Organization Name</p>
+                <p id="certDate"><strong>Date:</strong> 2024</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hobby Zone -->
+    <section id="hobbies" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Hobby Zone - My Works</h2>
+            
+            <div class="upload-section glass-card">
+                <h3>Upload Your Works</h3>
+                <div class="upload-area" id="uploadArea">
+                    <p>Drag & drop images here or click to upload</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple style="display:none;">
+                </div>
+                <div class="upload-form">
+                    <input type="text" id="workTitle" placeholder="Work Title" maxlength="50">
+                    <textarea id="workDescription" placeholder="Work Description" maxlength="200"></textarea>
+                    <button class="btn btn-primary" onclick="addWork()">Add Work</button>
+                </div>
+            </div>
+
+            <div class="works-gallery" id="worksGallery">
+                <!-- Works will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Socials / Connect -->
+    <section class="section socials-section">
+        <div class="section-container">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="socials-row">
+                <a href="https://facebook.com/alnoman" target="_blank" class="social-icon" title="Facebook">f</a>
+                <a href="https://instagram.com/alnoman" target="_blank" class="social-icon" title="Instagram">📷</a>
+                <a href="https://linkedin.com/in/alnoman" target="_blank" class="social-icon" title="LinkedIn">in</a>
+                <a href="https://github.com/alnoman" target="_blank" class="social-icon" title="GitHub">⚙️</a>
+                <a href="https://twitter.com/alnoman" target="_blank" class="social-icon" title="X (Twitter)">𝕏</a>
+                <a href="mailto:alnoman@example.com" class="social-icon" title="Gmail">✉️</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info glass-card">
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong> <a href="mailto:alnoman@example.com">alnoman@example.com</a></p>
+                    <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+                    <p><strong>Phone:</strong> +880 1234 567890</p>
+                    <a href="#" class="btn btn-secondary" onclick="downloadCV()">Download CV</a>
+                </div>
+
+                <form class="contact-form glass-card" id="contactForm">
+                    <input type="text" placeholder="Your Name" required id="formName">
+                    <input type="email" placeholder="Your Email" required id="formEmail">
+                    <input type="text" placeholder="Subject" required id="formSubject">
+                    <textarea placeholder="Your Message" required id="formMessage" rows="5"></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 AL Noman Robin. All rights reserved.</p>
+        <p>Designed with <span class="neon-accent">cyberpunk</span> vibes | Built with HTML, CSS & JavaScript</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
