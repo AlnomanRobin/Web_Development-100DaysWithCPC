@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AL Noman Robin — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">A</span>
+      <div class="brand-text">
+        <strong>AL Noman Robin</strong>
+        <small>Computer / Embedded Engineer • Frontend Developer</small>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <button class="nav-link" data-scroll="#profile">Profile</button>
+      <button class="nav-link" data-scroll="#academics">Academics</button>
+      <button class="nav-link" data-scroll="#skills">Skills</button>
+      <button class="nav-link" data-scroll="#projects">Projects</button>
+      <button class="nav-link" data-scroll="#achievements">Achievements</button>
+      <button class="nav-link" data-scroll="#spotlight">Spotlight</button>
+      <button class="nav-link" data-scroll="#hobby">Hobby zone</button>
+      <button class="nav-link" data-scroll="#contact">Contact</button>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn-outline" id="viewProjectsBtn" data-scroll="#projects">View projects</button>
+      <button class="btn btn-primary" data-scroll="#contact">Contact me</button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <!-- Sun/Moon icon toggled by JS -->
+        <svg width="20" height="20" viewBox="0 0 24 24" class="icon">
+          <path d="M12 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 15a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zM4 11a1 1 0 0 1 1 1v0a1 1 0 1 1-2 0v0a1 1 0 0 1 1-1zm17 0a1 1 0 0 1 1 1v0a1 1 0 1 1-2 0v0a1 1 0 0 1 1-1zM6.22 6.22a1 1 0 0 1 1.42 0l.71.71a1 1 0 1 1-1.42 1.42l-.71-.71a1 1 0 0 1 0-1.42zm10.43 10.43a1 1 0 0 1 1.42 0l.71.71a1 1 0 0 1-1.42 1.42l-.71-.71a1 1 0 0 1 0-1.42zM6.22 17.78a1 1 0 0 1 1.42-1.42l.71.71a1 1 0 1 1-1.42 1.42l-.71-.71zm10.43-10.43a1 1 0 0 1 1.42-1.42l.71.71a1 1 0 1 1-1.42 1.42l-.71-.71zM12 7a5 5 0 1 1 0 10A5 5 0 0 1 12 7z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Profile -->
+    <section id="profile" class="panel">
+      <div class="panel-header">
+        <h2>Profile</h2>
+      </div>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="avatar">
+            <div class="avatar-ring"></div>
+            <img src="https://avatars.githubusercontent.com/u/9919?s=200" alt="Profile photo of AL Noman Robin" />
+          </div>
+          <div class="profile-meta">
+            <h3>AL Noman Robin</h3>
+            <p class="subtitle">Computer / Embedded Engineer • Frontend Developer</p>
+            <div class="quick-actions">
+              <button class="btn btn-outline" data-scroll="#projects">View projects</button>
+              <button class="btn btn-primary" data-scroll="#contact">Contact me</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stat">
+            <div class="stat-label">CGPA</div>
+            <div class="stat-value">4.00/4.00</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">DMC</div>
+            <div class="stat-value">6.21/10</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Block</div>
+            <div class="stat-value">A0001A</div>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="badge">Dean’s List</div>
+          <p>Recognized for academic excellence and leadership.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academics -->
+    <section id="academics" class="panel">
+      <div class="panel-header">
+        <h2>Academics</h2>
+      </div>
+      <div class="academics-grid">
+        <article class="info-tile">
+          <h3 class="tile-title">CGPA</h3>
+          <p class="tile-value">4.00/4.00</p>
+        </article>
+        <article class="info-tile">
+          <h3 class="tile-title">DMC index</h3>
+          <p class="tile-value">6.21/10</p>
+        </article>
+        <article class="info-tile">
+          <h3 class="tile-title">Block</h3>
+          <p class="tile-value">A0001A</p>
+        </article>
+        <article class="info-tile highlight">
+          <h3 class="tile-title">Dean’s list award</h3>
+          <p class="tile-sub">Awarded for outstanding performance</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="panel">
+      <div class="panel-header">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-wrap">
+        <div class="skills-group">
+          <h3>Programming languages and tools</h3>
+          <ul class="skill-chips">
+            <li class="chip">Frontend</li>
+            <li class="chip">Backend</li>
+            <li class="chip">React.js</li>
+            <li class="chip">Redux.js</li>
+            <li class="chip">Redux Toolkit</li>
+            <li class="chip">Node.js</li>
+            <li class="chip">Express.js</li>
+            <li class="chip">MongoDB</li>
+            <li class="chip">REST API</li>
+            <li class="chip">Firebase</li>
+            <li class="chip">React Native</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="panel">
+      <div class="panel-header">
+        <h2>Projects</h2>
+        <div class="panel-tools">
+          <div class="filter-group">
+            <label for="projectFilter">Filter:</label>
+            <select id="projectFilter">
+              <option value="all">All</option>
+              <option value="embedded">Embedded</option>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="mobile">Mobile</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="projectCards">
+        <!-- Example project -->
+        <article class="card" data-tags="embedded">
+          <div class="card-media gradient-border">
+            <img src="assets/projects/arduino-sensors.jpg" alt="Sensors Circuit Arduino project thumbnail" />
+          </div>
+          <div class="card-body">
+            <h3>Sensors Circuit / Arduino</h3>
+            <p>Data acquisition and control using Arduino and sensor suite.</p>
+            <div class="meta">
+              <span class="status completed">Completed</span>
+              <span class="date">Jan 2023</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline" data-modal="project-nexus">Details</button>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">View repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- More sample projects -->
+        <article class="card" data-tags="frontend">
+          <div class="card-media gradient-border">
+            <img src="assets/projects/react-dashboard.jpg" alt="React admin dashboard project thumbnail" />
+          </div>
+          <div class="card-body">
+            <h3>React Admin Dashboard</h3>
+            <p>Accessible dashboard with charts, role-based access, and real-time updates.</p>
+            <div class="meta">
+              <span class="status in-progress">In progress</span>
+              <span class="date">2025</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#" target="_blank" rel="noopener">Live demo</a>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">View repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="backend">
+          <div class="card-media gradient-border">
+            <img src="assets/projects/express-api.jpg" alt="Node Express REST API project thumbnail" />
+          </div>
+          <div class="card-body">
+            <h3>Node/Express REST API</h3>
+            <p>JWT auth, rate limiting, file uploads, and OpenAPI docs.</p>
+            <div class="meta">
+              <span class="status completed">Completed</span>
+              <span class="date">2024</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#" target="_blank" rel="noopener">Docs</a>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">View repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="mobile frontend">
+          <div class="card-media gradient-border">
+            <img src="assets/projects/react-native.jpg" alt="React Native mobile app project thumbnail" />
+          </div>
+          <div class="card-body">
+            <h3>React Native App</h3>
+            <p>Offline-first app with Firebase sync and secure storage.</p>
+            <div class="meta">
+              <span class="status planned">Planned</span>
+              <span class="date">2026</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline" disabled>Preview</button>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">View repo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="panel">
+      <div class="panel-header">
+        <h2>Achievements</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Project Nexus</h3>
+            <p>A complete embedded system based on Arduino & sensors.</p>
+            <span class="date">2023</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Dean’s list</h3>
+            <p>Recognized for consistent academic excellence.</p>
+            <span class="date">2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spotlight -->
+    <section id="spotlight" class="panel">
+      <div class="panel-header">
+        <h2>Project spotlight</h2>
+      </div>
+      <div class="spotlight">
+        <div class="spotlight-media gradient-border">
+          <img src="assets/projects/arduino-sensors.jpg" alt="Project Nexus showcase image" />
+        </div>
+        <div class="spotlight-body">
+          <h3>Project Nexus</h3>
+          <p>A complete embedded system based on Arduino & sensors, featuring modular sensor interfaces, data logging, and a dashboard UI.</p>
+          <ul class="bullet">
+            <li><strong>Hardware:</strong> Arduino, sensor modules, power management</li>
+            <li><strong>Firmware:</strong> Sensor sampling, debouncing, serial protocol</li>
+            <li><strong>Software:</strong> React dashboard, REST API</li>
+          </ul>
+          <div class="spotlight-actions">
+            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">Case study</a>
+            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Source code</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hobby zone -->
+    <section id="hobby" class="panel">
+      <div class="panel-header">
+        <h2>Hobby zone</h2>
+      </div>
+
+      <div class="hobby-grid">
+        <article class="hobby-card">
+          <div class="thumb gradient-border">
+            <img src="assets/thumbnails/game-1.jpg" alt="Hobby media 1" />
+          </div>
+          <h3>Project Nauso</h3>
+          <p>Creative sandbox and experimental builds.</p>
+        </article>
+
+        <article class="hobby-card">
+          <div class="thumb gradient-border">
+            <img src="assets/thumbnails/game-2.jpg" alt="Hobby media 2" />
+          </div>
+          <h3>Photography</h3>
+          <p>Urban nights and neon compositions.</p>
+        </article>
+
+        <article class="hobby-card">
+          <div class="thumb gradient-border">
+            <img src="assets/thumbnails/game-3.jpg" alt="Hobby media 3" />
+          </div>
+          <h3>Retro gaming</h3>
+          <p>Classic titles and speedruns.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="panel">
+      <div class="panel-header">
+        <h2>Contact</h2>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-card">
+          <h3>Reach out</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="contactName">Name</label>
+              <input id="contactName" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-row">
+              <label for="contactEmail">Email</label>
+              <input id="contactEmail" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-row">
+              <label for="contactSubject">Subject</label>
+              <input id="contactSubject" name="subject" type="text" placeholder="Message subject" />
+            </div>
+            <div class="form-row">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="4" placeholder="Write your message..." required></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <button class="btn btn-outline" type="reset">Clear</button>
+            </div>
+            <p class="form-note">You can also email directly at <strong>flashh.com</strong> (placeholder).</p>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3>Featured contact</h3>
+          <div class="contact-profile">
+            <div class="avatar small">
+              <div class="avatar-ring"></div>
+              <img src="assets/thumbnails/contact.jpg" alt="Profile photo of Sopton Masco" />
+            </div>
+            <div>
+              <p class="name">Sopton Masco</p>
+              <p class="role">Missionary</p>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <button class="btn btn-outline">View</button>
+            <button class="btn btn-outline">Back</button>
+          </div>
+          <div class="social-list">
+            <a class="social" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.4V12h2.4V9.7c0-2.4 1.4-3.8 3.5-3.8 1 0 2 .2 2 .2v2.3h-1.1c-1.1 0-1.5.7-1.5 1.4V12h2.6l-.4 2.9h-2.2v7A10 10 0 0 0 22 12z"/></svg>
+            </a>
+            <a class="social" href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18H6V10h2.3v8zM7.1 8.9A1.3 1.3 0 1 1 7.1 6a1.3 1.3 0 0 1 0 2.9zM18 18h-2.3v-3.9c0-.9-.3-1.6-1.2-1.6-.6 0-1 .4-1.2.8-.1.2-.1.5-.1.8V18H11V10h2.2v1.1c.3-.5 1-1.3 2.3-1.3 1.6 0 2.5 1.1 2.5 3.2V18z"/></svg>
+            </a>
+            <a class="social" href="#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 .1 1.6-.9 1.6-.9.9-1.6 2.3-1.1 2.9-.9.1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.8 0-1.3.5-2.3 1.1-3.1-.1-.3-.5-1.5.1-3.2 0 0 .9-.3 3 1.1a10.6 10.6 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.7.2 2.9.1 3.2.7.8 1.1 1.8 1.1 3.1 0 4.5-2.8 5.5-5.4 5.8.4.3.8 1 .8 2.1v3.1c0 .3.2.7.9.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+            </a>
+            <a class="social" href="#" aria-label="Email">
+              <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 13.1 3.3 7h17.3L12 13.1zM3 8.4l9 6.5 9-6.5V18H3V8.4z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-icons">
+      <a href="#" aria-label="Facebook" class="social"><span class="sr-only">Facebook</span>⬦</a>
+      <a href="#" aria-label="Email" class="social"><span class="sr-only">Email</span>✉</a>
+      <a href="#" aria-label="LinkedIn" class="social"><span class="sr-only">LinkedIn</span>in</a>
+      <a href="#" aria-label="GitHub" class="social"><span class="sr-only">GitHub</span>GH</a>
+      <a href="#" aria-label="Gmail" class="social"><span class="sr-only">Gmail</span>G</a>
+    </div>
+    <p class="copyright">© <span id="year"></span> AL Noman Robin</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+      <button class="icon-btn modal-close" data-close-modal aria-label="Close">
+        ×
+      </button>
+      <h3 id="modalTitle">Project details</h3>
+      <div id="modalContent" class="modal-content">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
